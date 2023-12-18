@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1039875051143",
+    "project_id": "mungkul-ecommerce",
+    "storage_bucket": "mungkul-ecommerce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039875051143:android:0dfbae285a1b2ea2f8f222",
+        "android_client_info": {
+          "package_name": "com.mycompany.mungkulecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039875051143-2gkjskjmsu0f7o3hkknpp7cucidln1gg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.mungkulecommerce",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1039875051143-i9g0fl29bu2k5ijlpidlv72c71889n6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIpZxmy68TRpYnWZyQmp5s0X70NLAYxgY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1039875051143-i9g0fl29bu2k5ijlpidlv72c71889n6s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1039875051143-abvtldqeq0a8scqb5evfonhp9msp019v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.mungkulecommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
