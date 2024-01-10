@@ -42,6 +42,8 @@ class _HearderWidgetState extends State<HearderWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -83,13 +85,24 @@ class _HearderWidgetState extends State<HearderWidget> {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(8.0),
-                            child: Image.asset(
-                              'assets/images/MK_MONGKUL_LOGO-03.png',
-                              width: 241.0,
-                              height: 200.0,
-                              fit: BoxFit.contain,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              FFAppState().update(() {});
+
+                              context.pushNamed('HomePage');
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/MK_MONGKUL_LOGO-03.png',
+                                width: 241.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ),
                         ),
@@ -548,7 +561,7 @@ class _HearderWidgetState extends State<HearderWidget> {
                           child: Builder(
                             builder: (context) {
                               final headerCategory = functions
-                                  .repeatedCatefory(containerProductsRecordList
+                                  .repeatedCategory(containerProductsRecordList
                                       .map((e) => e.category)
                                       .toList())
                                   .toList()

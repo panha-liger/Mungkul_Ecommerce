@@ -48,8 +48,9 @@ class CheckoutProductStruct extends FFFirebaseStruct {
         totalPrice: castToType<double>(data['total_price']),
       );
 
-  static CheckoutProductStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? CheckoutProductStruct.fromMap(data) : null;
+  static CheckoutProductStruct? maybeFromMap(dynamic data) => data is Map
+      ? CheckoutProductStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'quantity': _quantity,

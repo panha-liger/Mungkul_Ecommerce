@@ -146,9 +146,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => OrderListWidget(),
         ),
         FFRoute(
-          name: 'Order_update',
-          path: '/orderUpdate',
-          builder: (context, params) => OrderUpdateWidget(
+          name: 'OrderDetail',
+          path: '/orderDetail',
+          builder: (context, params) => OrderDetailWidget(
             orderId: params.getParam('orderId', ParamType.String),
           ),
         ),
@@ -157,6 +157,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/productDetail',
           builder: (context, params) => ProductDetailWidget(
             productId: params.getParam('productId', ParamType.String),
+            cstegoryId: params.getParam('cstegoryId', ParamType.String),
           ),
         ),
         FFRoute(
@@ -211,7 +212,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Advertisment_Banner',
           path: '/advertismentBanner',
-          builder: (context, params) => AdvertismentBannerWidget(),
+          builder: (context, params) => AdvertismentBannerWidget(
+            bannerId: params.getParam('bannerId', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'contact_update_info',
@@ -219,9 +222,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ContactUpdateInfoWidget(),
         ),
         FFRoute(
-          name: 'Order_Detail',
-          path: '/orderDetail',
-          builder: (context, params) => OrderDetailWidget(
+          name: 'My_orderDetail',
+          path: '/order_detail',
+          builder: (context, params) => MyOrderDetailWidget(
             orderDetailId: params.getParam('orderDetailId', ParamType.String),
           ),
         ),
@@ -232,6 +235,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             editId: params.getParam(
                 'editId', ParamType.DocumentReference, false, ['users']),
           ),
+        ),
+        FFRoute(
+          name: 'Advertisement_bannerList',
+          path: '/advertisementBannerList',
+          builder: (context, params) => AdvertisementBannerListWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

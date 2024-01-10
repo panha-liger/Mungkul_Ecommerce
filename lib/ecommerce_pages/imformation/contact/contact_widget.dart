@@ -39,6 +39,8 @@ class _ContactWidgetState extends State<ContactWidget> {
 
     _model.massageController ??= TextEditingController();
     _model.massageFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

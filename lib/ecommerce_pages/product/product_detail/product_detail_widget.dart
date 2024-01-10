@@ -23,9 +23,11 @@ class ProductDetailWidget extends StatefulWidget {
   const ProductDetailWidget({
     Key? key,
     this.productId,
+    this.cstegoryId,
   }) : super(key: key);
 
   final String? productId;
+  final String? cstegoryId;
 
   @override
   _ProductDetailWidgetState createState() => _ProductDetailWidgetState();
@@ -77,6 +79,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
         _model.imageView = _model.productOutput!.image.first;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -679,138 +683,228 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                             );
                           },
                         ),
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                        StreamBuilder<List<ProductsRecord>>(
+                          stream: queryProductsRecord(
+                            queryBuilder: (productsRecord) => productsRecord
+                                .where(
+                                  'id',
+                                  isNotEqualTo: widget.productId,
+                                )
+                                .where(
+                                  'category',
+                                  isEqualTo: widget.cstegoryId,
+                                )
+                                .orderBy('id'),
+                            limit: 4,
                           ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 40.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    SizedBox(
-                                      height: 50.0,
-                                      child: VerticalDivider(
-                                        width: 20.0,
-                                        thickness: 20.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                      ),
-                                    ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'avvbrbpa' /* More Products */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleMedium
-                                          .override(
-                                            fontFamily: 'Kantumruy Pro',
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                  ].divide(SizedBox(width: 16.0)),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 55.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 370.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            3.0, 0.0, 0.0, 0.0),
-                                        child:
-                                            StreamBuilder<List<ProductsRecord>>(
-                                          stream: queryProductsRecord(
-                                            queryBuilder: (productsRecord) =>
-                                                productsRecord
-                                                    .where(
-                                                      'id',
-                                                      isNotEqualTo:
-                                                          widget.productId,
-                                                    )
-                                                    .orderBy('id'),
-                                            limit: 4,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<ProductsRecord>
-                                                rowProductsRecordList =
-                                                snapshot.data!;
-                                            return Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: List.generate(
-                                                  rowProductsRecordList.length,
-                                                  (rowIndex) {
-                                                final rowProductsRecord =
-                                                    rowProductsRecordList[
-                                                        rowIndex];
-                                                return ProductCardWidget(
-                                                  key: Key(
-                                                      'Keyqiq_${rowIndex}_of_${rowProductsRecordList.length}'),
-                                                  productRef: rowProductsRecord
-                                                      .reference,
-                                                  image: rowProductsRecord
-                                                      .image.first,
-                                                  discount: rowProductsRecord
-                                                      .discount,
-                                                  name: rowProductsRecord.name,
-                                                  price:
-                                                      rowProductsRecord.price,
-                                                  aboutItem: rowProductsRecord
-                                                      .aboutItem,
-                                                  description: rowProductsRecord
-                                                      .description,
-                                                  status:
-                                                      rowProductsRecord.status,
-                                                  id: rowProductsRecord.id,
-                                                  catregory: rowProductsRecord
-                                                      .category,
-                                                );
-                                              }).divide(SizedBox(width: 77.0)),
-                                            );
-                                          },
-                                        ),
-                                      ),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
+                              );
+                            }
+                            List<ProductsRecord> containerProductsRecordList =
+                                snapshot.data!;
+                            return Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 40.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        SizedBox(
+                                          height: 50.0,
+                                          child: VerticalDivider(
+                                            width: 20.0,
+                                            thickness: 20.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'avvbrbpa' /* Related Products */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleMedium
+                                              .override(
+                                                fontFamily: 'Kantumruy Pro',
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                      ].divide(SizedBox(width: 16.0)),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, 0.0),
+                                      child: Builder(
+                                        builder: (context) {
+                                          if (containerProductsRecordList
+                                                  .length >
+                                              0) {
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 55.0, 0.0, 0.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 370.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          3.0, 0.0, 0.0, 0.0),
+                                                  child: Builder(
+                                                    builder: (context) {
+                                                      final containerVar =
+                                                          containerProductsRecordList
+                                                              .toList();
+                                                      return Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: List.generate(
+                                                            containerVar.length,
+                                                            (containerVarIndex) {
+                                                          final containerVarItem =
+                                                              containerVar[
+                                                                  containerVarIndex];
+                                                          return ProductCardWidget(
+                                                            key: Key(
+                                                                'Keyqiq_${containerVarIndex}_of_${containerVar.length}'),
+                                                            productRef:
+                                                                containerVarItem
+                                                                    .reference,
+                                                            image:
+                                                                containerVarItem
+                                                                    .image
+                                                                    .first,
+                                                            discount:
+                                                                containerVarItem
+                                                                    .discount,
+                                                            name:
+                                                                containerVarItem
+                                                                    .name,
+                                                            price:
+                                                                containerVarItem
+                                                                    .price,
+                                                            aboutItem:
+                                                                containerVarItem
+                                                                    .aboutItem,
+                                                            description:
+                                                                containerVarItem
+                                                                    .description,
+                                                            status:
+                                                                containerVarItem
+                                                                    .status,
+                                                            id: containerVarItem
+                                                                .id,
+                                                            catregory:
+                                                                containerVarItem
+                                                                    .category,
+                                                          );
+                                                        }).divide(SizedBox(
+                                                            width: 77.0)),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          } else {
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 16.0, 0.0, 0.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 181.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .remove_shopping_cart_outlined,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      size: 50.0,
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'jsfbujlr' /* No Products Available */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Kantumruy Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      50.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(width: 25.0)),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ).animateOnPageLoad(

@@ -81,6 +81,8 @@ class _SignUpPopupWidgetState extends State<SignUpPopupWidget>
 
     authManager.handlePhoneAuthStateChanges(context);
     authManager.handlePhoneAuthStateChanges(context);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -385,10 +387,10 @@ class _SignUpPopupWidgetState extends State<SignUpPopupWidget>
                                 .secondaryBackground,
                           ),
                           child: FFButtonWidget(
-                            onPressed: (_model.textController1.text == null ||
+                            onPressed: ((_model.textController1.text == null ||
                                         _model.textController1.text == '') ||
                                     (_model.phoneController.text == null ||
-                                        _model.phoneController.text == '')
+                                        _model.phoneController.text == ''))
                                 ? null
                                 : () async {
                                     _model.updatePage(() {

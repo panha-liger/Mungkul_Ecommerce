@@ -140,8 +140,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'រកមើលតាមប្រភេទ',
     },
     'mfcqgfz1': {
-      'en': 'This Month Sale',
-      'km': 'ការលក់ខែនេះ',
+      'en': 'Product Feature',
+      'km': 'ផលិតផលពិសេសៗ',
     },
     'hajjb89j': {
       'en': 'New Arrival',
@@ -675,7 +675,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ឈ្មោះ',
     },
     'ecub20b4': {
-      'en': 'Date',
+      'en': 'Delivery',
       'km': 'កាលបរិច្ឆេទ',
     },
     'g1zdc17x': {
@@ -719,7 +719,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ទំព័រដើម',
     },
   },
-  // Order_update
+  // OrderDetail
   {
     'sq4e6uep': {
       'en': 'Update Order',
@@ -825,8 +825,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ដកចេញ',
     },
     'avvbrbpa': {
-      'en': 'More Products',
-      'km': 'ផលិតផលច្រើនទៀត',
+      'en': 'Related Products',
+      'km': 'ផលិតផលស្រដៀងគ្នា',
+    },
+    'jsfbujlr': {
+      'en': 'No Products Available',
+      'km': 'គ្មានផលិតផលស្រដៀង',
     },
     'bmb3cz7s': {
       'en': 'Home',
@@ -838,6 +842,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '1ypw2imd': {
       'en': 'New Products',
       'km': 'ផលិតផល​ថ្មី',
+    },
+    'wqnlt9dy': {
+      'en': 'Submit Product',
+      'km': '',
     },
     'pvd9sw37': {
       'en': 'General Information',
@@ -951,9 +959,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search for an item...',
       'km': 'ស្វែងរកធាតុ...',
     },
-    'wigbk99d': {
-      'en': 'Submit Product',
-      'km': 'ដាក់ស្នើផលិតផល',
+    'yyf67bv0': {
+      'en': 'Add Category',
+      'km': '',
+    },
+    'nq4ndkfn': {
+      'en': 'Choose Category',
+      'km': '',
+    },
+    'k4d43j83': {
+      'en': 'Type Category here....',
+      'km': '',
     },
     '6xe2y21s': {
       'en': 'Home',
@@ -1028,6 +1044,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'mwqkh4xn': {
       'en': 'Edit Products',
       'km': 'កែសម្រួលផលិតផល',
+    },
+    'qjy3dzb7': {
+      'en': 'Save Products',
+      'km': 'រក្សាទុកទំនិញ',
     },
     'c6koxsg4': {
       'en': 'General Information',
@@ -1125,13 +1145,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Category',
       'km': 'ប្រភេទ',
     },
-    'g3ly1ktu': {
-      'en': 'Type the Discount Percentage here....',
-      'km': 'វាយពាក្យ Discount Percent នៅទីនេះ....',
+    '9wn3e0m9': {
+      'en': 'Option 1',
+      'km': '',
     },
-    'qjy3dzb7': {
-      'en': 'Save Products',
-      'km': 'រក្សាទុកទំនិញ',
+    'lw75jl1c': {
+      'en': 'Please select...',
+      'km': '',
+    },
+    'yt2altbu': {
+      'en': 'Search for an item...',
+      'km': '',
     },
     'm5x2qgwg': {
       'en': 'Home',
@@ -1495,7 +1519,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ទំព័រដើម',
     },
   },
-  // Order_Detail
+  // My_orderDetail
   {
     'fuxii183': {
       'en': 'Your Order',
@@ -1589,6 +1613,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'km': 'ទំព័រដើម',
     },
   },
+  // Advertisement_bannerList
+  {
+    'fsfoogzf': {
+      'en': 'Advertisement Banner',
+      'km': '',
+    },
+    'hcmwo25a': {
+      'en': 'Home',
+      'km': '',
+    },
+  },
   // ProductCard
   {
     '7oy2rv0y': {
@@ -1625,6 +1660,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'tu8v3nq4': {
       'en': 'Advertisement Banner',
       'km': 'បដាផ្សាយពាណិជ្ជកម្ម',
+    },
+    'n2f4rjc3': {
+      'en': 'Banner List',
+      'km': '',
+    },
+    'h8ksm4fi': {
+      'en': 'Button',
+      'km': '',
     },
   },
   // hearder

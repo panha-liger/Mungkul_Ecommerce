@@ -30,6 +30,7 @@ class _ProductCategoryWidgetState extends State<ProductCategoryWidget> {
     _model = createModel(context, () => ProductCategoryModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

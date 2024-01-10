@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_product_widget.dart' show EditProductWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
@@ -82,10 +83,9 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
   FocusNode? percentageFocusNode;
   TextEditingController? percentageController;
   String? Function(BuildContext, String?)? percentageControllerValidator;
-  // State field(s) for category widget.
-  FocusNode? categoryFocusNode;
-  TextEditingController? categoryController;
-  String? Function(BuildContext, String?)? categoryControllerValidator;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
 
   /// Initialization and disposal methods.
 
@@ -110,9 +110,6 @@ class EditProductModel extends FlutterFlowModel<EditProductWidget> {
 
     percentageFocusNode?.dispose();
     percentageController?.dispose();
-
-    categoryFocusNode?.dispose();
-    categoryController?.dispose();
   }
 
   /// Action blocks are added here.

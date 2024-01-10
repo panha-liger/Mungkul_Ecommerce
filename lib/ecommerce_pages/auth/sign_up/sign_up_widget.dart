@@ -624,11 +624,11 @@ class _SignUpWidgetState extends State<SignUpWidget>
                                                                 ),
                                                                 child:
                                                                     FFButtonWidget(
-                                                                  onPressed: (_model.textController1.text == null ||
+                                                                  onPressed: ((_model.textController1.text == null ||
                                                                               _model.textController1.text ==
                                                                                   '') ||
                                                                           (_model.phoneController.text == null ||
-                                                                              _model.phoneController.text == '')
+                                                                              _model.phoneController.text == ''))
                                                                       ? null
                                                                       : () async {
                                                                           setState(

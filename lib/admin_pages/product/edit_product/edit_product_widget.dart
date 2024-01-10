@@ -11,6 +11,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +172,7 @@ class _EditProductWidgetState extends State<EditProductWidget>
 
     _model.percentageFocusNode ??= FocusNode();
 
-    _model.categoryFocusNode ??= FocusNode();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -278,60 +279,144 @@ class _EditProductWidgetState extends State<EditProductWidget>
                                 children: [
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 16.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 0.0, 8.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'mwqkh4xn' /* Edit Products */,
-                                            ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .displayMedium
-                                                .override(
-                                                  fontFamily: 'Kantumruy Pro',
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation']!),
-                                        ),
-                                        FlutterFlowIconButton(
-                                          borderColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          borderRadius: 9.0,
-                                          borderWidth: 1.0,
-                                          buttonSize: 50.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          icon: FaIcon(
-                                            FontAwesomeIcons.trashAlt,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            size: 24.0,
+                                        16.0, 0.0, 0.0, 8.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'mwqkh4xn' /* Edit Products */,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .displayMedium
+                                          .override(
+                                            fontFamily: 'Kantumruy Pro',
+                                            fontWeight: FontWeight.w600,
                                           ),
-                                          onPressed: () async {
-                                            await contentProductsRecord!
-                                                .reference
-                                                .delete();
-
-                                            context.pushNamed('product_list');
-                                          },
-                                        ),
-                                      ],
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation']!),
                                   ),
                                 ],
                               ).animateOnPageLoad(
                                   animationsMap['columnOnPageLoadAnimation']!),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  FlutterFlowIconButton(
+                                    borderColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    borderRadius: 9.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 50.0,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.trashAlt,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      size: 24.0,
+                                    ),
+                                    onPressed: () async {
+                                      await contentProductsRecord!.reference
+                                          .delete();
+
+                                      context.pushNamed('product_list');
+                                    },
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await contentProductsRecord!.reference
+                                            .update({
+                                          ...createProductsRecordData(
+                                            name: _model
+                                                .productsNameController.text,
+                                            description: _model
+                                                .descriptiomController.text,
+                                            aboutItem:
+                                                _model.aboutitemController.text,
+                                            status: _model.statusValue,
+                                            discount: int.tryParse(_model
+                                                .percentageController.text),
+                                            category: _model.dropDownValue,
+                                            price: double.tryParse(_model
+                                                .basePriceController.text),
+                                            previewImage: _model.previewImg,
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'image': _model.editImageList,
+                                            },
+                                          ),
+                                        });
+
+                                        context.goNamed('product_list');
+                                      },
+                                      child: Container(
+                                        width: 181.0,
+                                        height: 50.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          borderRadius:
+                                              BorderRadius.circular(9.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  9.0, 0.0, 9.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              Icon(
+                                                Icons.check_circle_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                size: 34.0,
+                                              ),
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'qjy3dzb7' /* Save Products */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Kantumruy Pro',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(width: 6.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -1937,109 +2022,117 @@ class _EditProductWidgetState extends State<EditProductWidget>
                                                                           .w500,
                                                                 ),
                                                           ),
-                                                          TextFormField(
-                                                            controller: _model
-                                                                    .categoryController ??=
-                                                                TextEditingController(
-                                                              text:
-                                                                  contentProductsRecord
-                                                                      ?.category,
-                                                            ),
-                                                            focusNode: _model
-                                                                .categoryFocusNode,
-                                                            autofocus: true,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium,
-                                                              hintText:
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                'g3ly1ktu' /* Type the Discount Percentage h... */,
-                                                              ),
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelLarge,
-                                                              enabledBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent4,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            9.0),
-                                                              ),
-                                                              focusedBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            9.0),
-                                                              ),
-                                                              errorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            9.0),
-                                                              ),
-                                                              focusedErrorBorder:
-                                                                  OutlineInputBorder(
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .error,
-                                                                  width: 2.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            9.0),
-                                                              ),
-                                                              filled: true,
-                                                              fillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent4,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                            validator: _model
-                                                                .categoryControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
                                                         ].divide(SizedBox(
                                                             height: 16.0)),
                                                       ),
                                                     ),
                                                   ],
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: StreamBuilder<
+                                                      List<ProductsRecord>>(
+                                                    stream:
+                                                        queryProductsRecord(),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                CircularProgressIndicator(
+                                                              valueColor:
+                                                                  AlwaysStoppedAnimation<
+                                                                      Color>(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      List<ProductsRecord>
+                                                          dropDownProductsRecordList =
+                                                          snapshot.data!;
+                                                      return FlutterFlowDropDown<
+                                                          String>(
+                                                        controller: _model
+                                                                .dropDownValueController ??=
+                                                            FormFieldController<
+                                                                String>(
+                                                          _model.dropDownValue ??=
+                                                              contentProductsRecord
+                                                                  ?.category,
+                                                        ),
+                                                        options: functions
+                                                            .repeatedCategory(
+                                                                dropDownProductsRecordList
+                                                                    .map((e) =>
+                                                                        e.category)
+                                                                    .toList()),
+                                                        onChanged: (val) =>
+                                                            setState(() => _model
+                                                                    .dropDownValue =
+                                                                val),
+                                                        width: 500.0,
+                                                        height: 50.0,
+                                                        searchHintTextStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'lw75jl1c' /* Please select... */,
+                                                        ),
+                                                        searchHintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'yt2altbu' /* Search for an item... */,
+                                                        ),
+                                                        icon: Icon(
+                                                          Icons
+                                                              .keyboard_arrow_down_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          size: 24.0,
+                                                        ),
+                                                        fillColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        elevation: 2.0,
+                                                        borderColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        borderWidth: 2.0,
+                                                        borderRadius: 8.0,
+                                                        margin:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    4.0,
+                                                                    16.0,
+                                                                    4.0),
+                                                        hidesUnderline: true,
+                                                        isSearchable: true,
+                                                        isMultiSelect: false,
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ].divide(SizedBox(height: 16.0)),
                                             ),
@@ -2051,95 +2144,6 @@ class _EditProductWidgetState extends State<EditProductWidget>
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation3']!),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(1.0, 1.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 16.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await contentProductsRecord!.reference
-                                        .update({
-                                      ...createProductsRecordData(
-                                        name:
-                                            _model.productsNameController.text,
-                                        description:
-                                            _model.descriptiomController.text,
-                                        aboutItem:
-                                            _model.aboutitemController.text,
-                                        status: _model.statusValue,
-                                        discount: int.tryParse(
-                                            _model.percentageController.text),
-                                        category:
-                                            _model.categoryController.text,
-                                        price: double.tryParse(
-                                            _model.basePriceController.text),
-                                        previewImage: _model.previewImg,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'image': _model.editImageList,
-                                        },
-                                      ),
-                                    });
-
-                                    context.goNamed('product_list');
-                                  },
-                                  child: Container(
-                                    width: 181.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      borderRadius: BorderRadius.circular(9.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          9.0, 0.0, 9.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Icon(
-                                            Icons.check_circle_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            size: 34.0,
-                                          ),
-                                          Expanded(
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'qjy3dzb7' /* Save Products */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Kantumruy Pro',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        ].divide(SizedBox(width: 6.0)),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ),
                             Container(
                               width: double.infinity,

@@ -33,6 +33,8 @@ class _UserAccountWidgetState extends State<UserAccountWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UserAccountModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

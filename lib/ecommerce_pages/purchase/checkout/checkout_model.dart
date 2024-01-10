@@ -15,7 +15,6 @@ import '/user_components/footer/footer_widget.dart';
 import '/user_components/hearder/hearder_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'checkout_widget.dart' show CheckoutWidget;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';

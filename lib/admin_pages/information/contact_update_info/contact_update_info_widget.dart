@@ -49,6 +49,8 @@ class _ContactUpdateInfoWidgetState extends State<ContactUpdateInfoWidget> {
     _model.processFocusNode ??= FocusNode();
 
     _model.approachFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

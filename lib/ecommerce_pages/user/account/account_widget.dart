@@ -46,6 +46,8 @@ class _AccountWidgetState extends State<AccountWidget> {
 
     _model.emailController ??= TextEditingController(text: currentUserEmail);
     _model.emailFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -902,7 +904,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         FFButtonWidget(
-                                                      onPressed: (currentUserDisplayName == _model.nameController.text) &&
+                                                      onPressed: ((currentUserDisplayName == _model.nameController.text) &&
                                                               (currentUserEmail ==
                                                                   _model
                                                                       .emailController
@@ -917,7 +919,7 @@ class _AccountWidgetState extends State<AccountWidget> {
                                                               (currentPhoneNumber ==
                                                                   _model
                                                                       .phoneNumberController
-                                                                      .text)
+                                                                      .text))
                                                           ? null
                                                           : () async {
                                                               await currentUserReference!

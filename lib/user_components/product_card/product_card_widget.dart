@@ -88,6 +88,8 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -115,6 +117,10 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
             queryParameters: {
               'productId': serializeParam(
                 widget.id,
+                ParamType.String,
+              ),
+              'cstegoryId': serializeParam(
+                widget.catregory,
                 ParamType.String,
               ),
             }.withoutNulls,
@@ -151,7 +157,7 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(3.0),
+                          borderRadius: BorderRadius.circular(5.0),
                           child: Image.network(
                             widget.image!,
                             width: MediaQuery.sizeOf(context).width * 1.0,
@@ -191,8 +197,8 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                                         ..image = widget.image
                                         ..id = widget.id
                                         ..productRef = widget.productRef
-                                        ..price = widget.price! -
-                                            (widget.price! *
+                                        ..price = (widget.price!) -
+                                            ((widget.price!) *
                                                 widget.discount!.toDouble() /
                                                 100)
                                         ..basePrice = widget.price,
@@ -212,9 +218,11 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                                         _model.currentProduct!.price;
                                   });
                                   FFAppState().update(() {
-                                    FFAppState().discountAmount = FFAppState()
-                                            .discountAmount +
-                                        widget.price! * widget.discount! / 100;
+                                    FFAppState().discountAmount =
+                                        FFAppState().discountAmount +
+                                            (widget.price!) *
+                                                (widget.discount!) /
+                                                100;
                                   });
                                   FFAppState().update(() {
                                     FFAppState().subTotal = widget.price!;
@@ -265,15 +273,16 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                                 onTap: () async {
                                   FFAppState().update(() {
                                     FFAppState().subTotal =
-                                        FFAppState().subTotal + -widget.price!;
+                                        FFAppState().subTotal +
+                                            -(widget.price!);
                                     FFAppState().discountAmount =
                                         FFAppState().discountAmount +
-                                            -(widget.price! *
-                                                widget.discount! /
+                                            -((widget.price!) *
+                                                (widget.discount!) /
                                                 100);
                                     FFAppState().sum = FFAppState().sum +
-                                        -widget.price! -
-                                        (widget.price! *
+                                        -(widget.price!) -
+                                        ((widget.price!) *
                                             widget.discount!.toDouble() /
                                             100);
                                   });
@@ -404,8 +413,8 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                                   0.0, 0.0, 0.0, 12.0),
                               child: Text(
                                 formatNumber(
-                                  widget.price! -
-                                      (widget.price! *
+                                  (widget.price!) -
+                                      ((widget.price!) *
                                           widget.discount!.toDouble() /
                                           100),
                                   formatType: FormatType.custom,

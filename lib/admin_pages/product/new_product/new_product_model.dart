@@ -13,6 +13,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'new_product_widget.dart' show NewProductWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -36,6 +37,8 @@ class NewProductModel extends FlutterFlowModel<NewProductWidget> {
   int listIndex = 0;
 
   String previewImage = '';
+
+  bool newCategory = false;
 
   ///  State fields for stateful widgets in this page.
 
@@ -78,9 +81,13 @@ class NewProductModel extends FlutterFlowModel<NewProductWidget> {
   FocusNode? percentageFocusNode;
   TextEditingController? percentageController;
   String? Function(BuildContext, String?)? percentageControllerValidator;
-  // State field(s) for DropDown widget.
-  String? dropDownValue;
-  FormFieldController<String>? dropDownValueController;
+  // State field(s) for Category widget.
+  String? categoryValue;
+  FormFieldController<String>? categoryValueController;
+  // State field(s) for Category widget.
+  FocusNode? categoryFocusNode;
+  TextEditingController? categoryController;
+  String? Function(BuildContext, String?)? categoryControllerValidator;
 
   /// Initialization and disposal methods.
 
@@ -105,6 +112,9 @@ class NewProductModel extends FlutterFlowModel<NewProductWidget> {
 
     percentageFocusNode?.dispose();
     percentageController?.dispose();
+
+    categoryFocusNode?.dispose();
+    categoryController?.dispose();
   }
 
   /// Action blocks are added here.

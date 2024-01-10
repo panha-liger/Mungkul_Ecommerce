@@ -13,7 +13,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-List<String> repeatedCatefory(List<String> categoryList) {
+List<String> repeatedCategory(List<String> categoryList) {
   Set<String> newCustomFunction = Set<String>.from(categoryList);
   return newCustomFunction.toList();
 }

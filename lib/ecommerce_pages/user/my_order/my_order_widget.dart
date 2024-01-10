@@ -56,6 +56,8 @@ class _MyOrderWidgetState extends State<MyOrderWidget> {
 
     _model.searchorderController ??= TextEditingController();
     _model.searchorderFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -695,7 +697,7 @@ class _MyOrderWidgetState extends State<MyOrderWidget> {
                                                                     .transparent,
                                                             onTap: () async {
                                                               context.pushNamed(
-                                                                'Order_Detail',
+                                                                'My_orderDetail',
                                                                 queryParameters:
                                                                     {
                                                                   'orderDetailId':

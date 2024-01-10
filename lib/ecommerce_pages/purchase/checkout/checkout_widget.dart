@@ -14,7 +14,6 @@ import '/function/successful_place_order/successful_place_order_widget.dart';
 import '/user_components/footer/footer_widget.dart';
 import '/user_components/hearder/hearder_widget.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -103,6 +102,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
 
     _model.additionalDetailController ??= TextEditingController();
     _model.additionalDetailFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -2297,18 +2298,18 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                   .fromSTEB(
                                                       0.0, 16.0, 0.0, 0.0),
                                               child: FFButtonWidget(
-                                                onPressed: (_model
+                                                onPressed: ((_model
                                                                     .fullnameloginController
                                                                     .text ==
                                                                 null ||
-                                                            _model
-                                                                    .fullnameloginController
+                                                            _model.fullnameloginController
                                                                     .text ==
                                                                 '') &&
                                                         (_model.addressloginController
                                                                     .text ==
                                                                 null ||
-                                                            _model.addressloginController
+                                                            _model
+                                                                    .addressloginController
                                                                     .text ==
                                                                 '') &&
                                                         (_model.locationloginValue ==
@@ -2320,7 +2321,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                 null ||
                                                             _model.fullnameController
                                                                     .text ==
-                                                                '')
+                                                                ''))
                                                     ? null
                                                     : () async {
                                                         if (loggedIn == true) {
@@ -2357,8 +2358,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                   getCurrentTimestamp,
                                                               orderId: random_data
                                                                   .randomString(
-                                                                1,
                                                                 10,
+                                                                12,
                                                                 true,
                                                                 true,
                                                                 true,
@@ -2404,34 +2405,27 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                             FFAppState()
                                                                 .subTotal = 0.0;
                                                           });
-                                                          await showAlignedDialog(
+                                                          await showDialog(
                                                             barrierColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
                                                                     .accent2,
                                                             context: context,
-                                                            isGlobal: true,
-                                                            avoidOverflow:
-                                                                false,
-                                                            targetAnchor:
-                                                                AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
-                                                            followerAnchor:
-                                                                AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0)
-                                                                    .resolve(
-                                                                        Directionality.of(
-                                                                            context)),
                                                             builder:
                                                                 (dialogContext) {
-                                                              return Material(
-                                                                color: Colors
-                                                                    .transparent,
+                                                              return Dialog(
+                                                                insetPadding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                alignment: AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0)
+                                                                    .resolve(
+                                                                        Directionality.of(
+                                                                            context)),
                                                                 child:
                                                                     GestureDetector(
                                                                   onTap: () => _model
@@ -2523,8 +2517,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                     getCurrentTimestamp,
                                                                 orderId: random_data
                                                                     .randomString(
-                                                                  1,
                                                                   10,
+                                                                  12,
                                                                   true,
                                                                   true,
                                                                   true,
@@ -2606,8 +2600,8 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                     getCurrentTimestamp,
                                                                 orderId: random_data
                                                                     .randomString(
-                                                                  1,
                                                                   10,
+                                                                  12,
                                                                   true,
                                                                   true,
                                                                   true,
@@ -2669,34 +2663,27 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                       .subTotal =
                                                                   0.0;
                                                             });
-                                                            await showAlignedDialog(
+                                                            await showDialog(
                                                               barrierColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
                                                                       .accent2,
                                                               context: context,
-                                                              isGlobal: true,
-                                                              avoidOverflow:
-                                                                  false,
-                                                              targetAnchor:
-                                                                  AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
-                                                              followerAnchor:
-                                                                  AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
                                                               builder:
                                                                   (dialogContext) {
-                                                                return Material(
-                                                                  color: Colors
-                                                                      .transparent,
+                                                                return Dialog(
+                                                                  insetPadding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  alignment: AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0)
+                                                                      .resolve(
+                                                                          Directionality.of(
+                                                                              context)),
                                                                   child:
                                                                       GestureDetector(
                                                                     onTap: () => _model
@@ -2742,30 +2729,23 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                                           .text,
                                                               );
                                                             });
-                                                            await showAlignedDialog(
+                                                            await showDialog(
                                                               context: context,
-                                                              isGlobal: true,
-                                                              avoidOverflow:
-                                                                  false,
-                                                              targetAnchor:
-                                                                  AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0)
-                                                                      .resolve(
-                                                                          Directionality.of(
-                                                                              context)),
-                                                              followerAnchor:
-                                                                  AlignmentDirectional(
+                                                              builder:
+                                                                  (dialogContext) {
+                                                                return Dialog(
+                                                                  insetPadding:
+                                                                      EdgeInsets
+                                                                          .zero,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  alignment: AlignmentDirectional(
                                                                           0.0,
                                                                           -1.0)
                                                                       .resolve(
                                                                           Directionality.of(
                                                                               context)),
-                                                              builder:
-                                                                  (dialogContext) {
-                                                                return Material(
-                                                                  color: Colors
-                                                                      .transparent,
                                                                   child:
                                                                       GestureDetector(
                                                                     onTap: () => _model

@@ -112,6 +112,8 @@ class _SignUpEditio1WidgetState extends State<SignUpEditio1Widget>
 
     authManager.handlePhoneAuthStateChanges(context);
     authManager.handlePhoneAuthStateChanges(context);
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -570,7 +572,7 @@ class _SignUpEditio1WidgetState extends State<SignUpEditio1Widget>
                                                         .secondaryBackground,
                                               ),
                                               child: FFButtonWidget(
-                                                onPressed: (_model.textController1
+                                                onPressed: ((_model.textController1
                                                                     .text ==
                                                                 null ||
                                                             _model.textController1
@@ -581,7 +583,7 @@ class _SignUpEditio1WidgetState extends State<SignUpEditio1Widget>
                                                                 null ||
                                                             _model.phoneController
                                                                     .text ==
-                                                                '')
+                                                                ''))
                                                     ? null
                                                     : () async {
                                                         setState(() {

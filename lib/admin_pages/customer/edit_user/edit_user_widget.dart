@@ -41,6 +41,8 @@ class _EditUserWidgetState extends State<EditUserWidget> {
     _model.fullnameFocusNode3 ??= FocusNode();
 
     _model.fullnameFocusNode4 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -30,8 +30,9 @@ class OrderProductsStruct extends FFFirebaseStruct {
             CheckoutProductStruct.maybeFromMap(data['checkout_products']),
       );
 
-  static OrderProductsStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? OrderProductsStruct.fromMap(data) : null;
+  static OrderProductsStruct? maybeFromMap(dynamic data) => data is Map
+      ? OrderProductsStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'checkout_products': _checkoutProducts?.toMap(),

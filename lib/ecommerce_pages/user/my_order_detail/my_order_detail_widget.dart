@@ -16,11 +16,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'order_detail_model.dart';
-export 'order_detail_model.dart';
+import 'my_order_detail_model.dart';
+export 'my_order_detail_model.dart';
 
-class OrderDetailWidget extends StatefulWidget {
-  const OrderDetailWidget({
+class MyOrderDetailWidget extends StatefulWidget {
+  const MyOrderDetailWidget({
     Key? key,
     this.orderDetailId,
   }) : super(key: key);
@@ -28,12 +28,12 @@ class OrderDetailWidget extends StatefulWidget {
   final String? orderDetailId;
 
   @override
-  _OrderDetailWidgetState createState() => _OrderDetailWidgetState();
+  _MyOrderDetailWidgetState createState() => _MyOrderDetailWidgetState();
 }
 
-class _OrderDetailWidgetState extends State<OrderDetailWidget>
+class _MyOrderDetailWidgetState extends State<MyOrderDetailWidget>
     with TickerProviderStateMixin {
-  late OrderDetailModel _model;
+  late MyOrderDetailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -62,7 +62,9 @@ class _OrderDetailWidgetState extends State<OrderDetailWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OrderDetailModel());
+    _model = createModel(context, () => MyOrderDetailModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -723,9 +725,9 @@ class _OrderDetailWidgetState extends State<OrderDetailWidget>
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
-                                                  onPressed: rowOrderRecord
+                                                  onPressed: (rowOrderRecord
                                                               ?.status ==
-                                                          'Accepted By Store'
+                                                          'Accepted By Store')
                                                       ? null
                                                       : () async {
                                                           await rowOrderRecord!

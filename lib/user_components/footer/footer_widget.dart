@@ -30,6 +30,8 @@ class _FooterWidgetState extends State<FooterWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FooterModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

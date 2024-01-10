@@ -69,6 +69,8 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
         });
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -1309,10 +1311,10 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                                           ),
                                         ),
                                         FFButtonWidget(
-                                          onPressed: FFAppState()
+                                          onPressed: (FFAppState()
                                                       .checkoutCart
                                                       .length <
-                                                  1
+                                                  1)
                                               ? null
                                               : () async {
                                                   setState(() {

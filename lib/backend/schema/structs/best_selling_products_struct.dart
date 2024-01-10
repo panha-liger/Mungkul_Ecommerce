@@ -37,10 +37,9 @@ class BestSellingProductsStruct extends FFFirebaseStruct {
         productAmount: castToType<int>(data['product_amount']),
       );
 
-  static BestSellingProductsStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic>
-          ? BestSellingProductsStruct.fromMap(data)
-          : null;
+  static BestSellingProductsStruct? maybeFromMap(dynamic data) => data is Map
+      ? BestSellingProductsStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'product_Id': _productId,

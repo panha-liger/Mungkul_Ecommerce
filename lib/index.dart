@@ -14,8 +14,8 @@ export '/admin_pages/customer/customer_list/customer_list_widget.dart'
     show CustomerListWidget;
 export '/admin_pages/order/order_list/order_list_widget.dart'
     show OrderListWidget;
-export '/admin_pages/order/order_update/order_update_widget.dart'
-    show OrderUpdateWidget;
+export '/admin_pages/order/order_detail/order_detail_widget.dart'
+    show OrderDetailWidget;
 export '/ecommerce_pages/product/product_detail/product_detail_widget.dart'
     show ProductDetailWidget;
 export '/admin_pages/product/new_product/new_product_widget.dart'
@@ -37,7 +37,9 @@ export '/admin_pages/product/advertisment_banner/advertisment_banner_widget.dart
     show AdvertismentBannerWidget;
 export '/admin_pages/information/contact_update_info/contact_update_info_widget.dart'
     show ContactUpdateInfoWidget;
-export '/ecommerce_pages/user/order_detail/order_detail_widget.dart'
-    show OrderDetailWidget;
+export '/ecommerce_pages/user/my_order_detail/my_order_detail_widget.dart'
+    show MyOrderDetailWidget;
 export '/admin_pages/customer/edit_user/edit_user_widget.dart'
     show EditUserWidget;
+export '/advertisement_banner_list/advertisement_banner_list_widget.dart'
+    show AdvertisementBannerListWidget;

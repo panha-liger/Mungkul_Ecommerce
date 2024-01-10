@@ -814,6 +814,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
             .cast<BestSellingProductsStruct>();
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

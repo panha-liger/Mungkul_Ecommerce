@@ -53,7 +53,7 @@ class GuestStruct extends FFFirebaseStruct {
       );
 
   static GuestStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? GuestStruct.fromMap(data) : null;
+      data is Map ? GuestStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'name': _name,

@@ -133,6 +133,8 @@ class _OrderListWidgetState extends State<OrderListWidget>
 
     _model.searchorderController ??= TextEditingController();
     _model.searchorderFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -255,7 +257,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 0.0),
+                                    0.0, 16.0, 0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -642,7 +644,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                       .fromSTEB(
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 250.0,
+                                                    width: 200.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x00FFFFFF),
                                                     ),
@@ -670,7 +672,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                 ),
                                               ),
                                               Container(
-                                                width: 100.0,
+                                                width: 150.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0x00FFFFFF),
                                                 ),
@@ -681,7 +683,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'ecub20b4' /* Date */,
+                                                      'ecub20b4' /* Delivery */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -914,6 +916,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                         ),
                                         Container(
                                           width: double.infinity,
+                                          height: 515.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -981,110 +984,107 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Builder(
-                                                                  builder:
-                                                                      (context) {
-                                                                    if (orderListItem
-                                                                            .isGuest ==
-                                                                        true) {
-                                                                      return Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              250.0,
-                                                                          height:
-                                                                              50.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryBackground,
-                                                                          ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          6.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Builder(
+                                                                    builder:
+                                                                        (context) {
+                                                                      if (orderListItem
+                                                                              .isGuest ==
+                                                                          true) {
+                                                                        return Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
-                                                                              Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(-1.0, 0.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                              child: AutoSizeText(
-                                                                                orderListItem.guestInfo.name,
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    } else {
-                                                                      return FutureBuilder<
-                                                                          List<
-                                                                              UsersRecord>>(
-                                                                        future:
-                                                                            queryUsersRecordOnce(
-                                                                          queryBuilder: (usersRecord) =>
-                                                                              usersRecord.where(
-                                                                            'user_ref',
-                                                                            isEqualTo:
-                                                                                orderListItem.userRef,
-                                                                          ),
-                                                                          singleRecord:
-                                                                              true,
-                                                                        ),
-                                                                        builder:
-                                                                            (context,
-                                                                                snapshot) {
-                                                                          // Customize what your widget looks like when it's loading.
-                                                                          if (!snapshot
-                                                                              .hasData) {
-                                                                            return Center(
-                                                                              child: SizedBox(
-                                                                                width: 50.0,
-                                                                                height: 50.0,
-                                                                                child: CircularProgressIndicator(
-                                                                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                    FlutterFlowTheme.of(context).primary,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
-                                                                          List<UsersRecord>
-                                                                              containerUsersRecordList =
-                                                                              snapshot.data!;
-                                                                          // Return an empty Container when the item does not exist.
-                                                                          if (snapshot
-                                                                              .data!
-                                                                              .isEmpty) {
-                                                                            return Container();
-                                                                          }
-                                                                          final containerUsersRecord = containerUsersRecordList.isNotEmpty
-                                                                              ? containerUsersRecordList.first
-                                                                              : null;
-                                                                          return Container(
+                                                                              Container(
                                                                             width:
-                                                                                250.0,
+                                                                                200.0,
+                                                                            height:
+                                                                                50.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                             ),
                                                                             child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
-                                                                              child: Text(
-                                                                                valueOrDefault<String>(
-                                                                                  containerUsersRecord?.displayName,
-                                                                                  'N/A',
+                                                                                Align(
+                                                                              alignment: AlignmentDirectional(-1.0, 0.0),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                child: AutoSizeText(
+                                                                                  orderListItem.guestInfo.name,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
                                                                                 ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
                                                                               ),
                                                                             ),
-                                                                          );
-                                                                        },
-                                                                      );
-                                                                    }
-                                                                  },
+                                                                          ),
+                                                                        );
+                                                                      } else {
+                                                                        return FutureBuilder<
+                                                                            List<UsersRecord>>(
+                                                                          future:
+                                                                              queryUsersRecordOnce(
+                                                                            queryBuilder: (usersRecord) =>
+                                                                                usersRecord.where(
+                                                                              'user_ref',
+                                                                              isEqualTo: orderListItem.userRef,
+                                                                            ),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ),
+                                                                          builder:
+                                                                              (context, snapshot) {
+                                                                            // Customize what your widget looks like when it's loading.
+                                                                            if (!snapshot.hasData) {
+                                                                              return Center(
+                                                                                child: SizedBox(
+                                                                                  width: 50.0,
+                                                                                  height: 50.0,
+                                                                                  child: CircularProgressIndicator(
+                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                      FlutterFlowTheme.of(context).primary,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            }
+                                                                            List<UsersRecord>
+                                                                                containerUsersRecordList =
+                                                                                snapshot.data!;
+                                                                            // Return an empty Container when the item does not exist.
+                                                                            if (snapshot.data!.isEmpty) {
+                                                                              return Container();
+                                                                            }
+                                                                            final containerUsersRecord = containerUsersRecordList.isNotEmpty
+                                                                                ? containerUsersRecordList.first
+                                                                                : null;
+                                                                            return Container(
+                                                                              width: 200.0,
+                                                                              decoration: BoxDecoration(
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              ),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(6.0, 0.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  valueOrDefault<String>(
+                                                                                    containerUsersRecord?.displayName,
+                                                                                    'N/A',
+                                                                                  ),
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      }
+                                                                    },
+                                                                  ),
                                                                 ),
                                                                 Align(
                                                                   alignment:
@@ -1094,7 +1094,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                                   child:
                                                                       Container(
                                                                     width:
-                                                                        100.0,
+                                                                        150.0,
                                                                     decoration:
                                                                         BoxDecoration(
                                                                       color: FlutterFlowTheme.of(
@@ -1119,12 +1119,8 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          dateTimeFormat(
-                                                                            'd/M/y',
-                                                                            orderListItem.createdAt!,
-                                                                            locale:
-                                                                                FFLocalizations.of(context).languageCode,
-                                                                          ),
+                                                                          orderListItem
+                                                                              .deliveryOption,
                                                                           style:
                                                                               FlutterFlowTheme.of(context).bodyMedium,
                                                                         ),
@@ -1381,7 +1377,7 @@ class _OrderListWidgetState extends State<OrderListWidget>
                                                                       () async {
                                                                     context
                                                                         .pushNamed(
-                                                                      'Order_update',
+                                                                      'OrderDetail',
                                                                       queryParameters:
                                                                           {
                                                                         'orderId':

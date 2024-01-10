@@ -81,6 +81,8 @@ class _SuccessfulPlaceOrderWidgetState extends State<SuccessfulPlaceOrderWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

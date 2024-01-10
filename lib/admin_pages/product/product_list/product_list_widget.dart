@@ -92,6 +92,8 @@ class _ProductListWidgetState extends State<ProductListWidget>
 
     _model.searchorderController ??= TextEditingController();
     _model.searchorderFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

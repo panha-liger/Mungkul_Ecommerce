@@ -33,7 +33,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  var hasRowTriggered = false;
+
   final animationsMap = {
     'columnOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -56,14 +56,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
     ),
     'rowOnActionTriggerAnimation': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: false,
+      applyInitialState: true,
       effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
+        MoveEffect(
+          curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
+          duration: 600.ms,
+          begin: Offset(36.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -113,6 +113,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -234,10 +236,12 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           builder: (context) {
                                             final advertismentBanner =
                                                 containerAdvertismentBannerCollectionRecordList
+                                                    .toList()
+                                                    .take(4)
                                                     .toList();
                                             return Container(
                                               width: double.infinity,
-                                              height: 408.0,
+                                              height: 534.0,
                                               child: CarouselSlider.builder(
                                                 itemCount:
                                                     advertismentBanner.length,
@@ -282,7 +286,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           advertismentBannerItem
                                                               .adImage,
                                                           width: 300.0,
-                                                          height: 190.0,
+                                                          height: 266.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -610,6 +614,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             onPressed:
                                                                 () async {
+                                                              if (animationsMap[
+                                                                      'rowOnActionTriggerAnimation'] !=
+                                                                  null) {
+                                                                animationsMap[
+                                                                        'rowOnActionTriggerAnimation']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0);
+                                                              }
                                                               setState(() {
                                                                 _model.pageIndex =
                                                                     _model.pageIndex +
@@ -650,21 +664,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           1;
                                                                 });
                                                               }
-                                                              if (animationsMap[
-                                                                      'rowOnActionTriggerAnimation'] !=
-                                                                  null) {
-                                                                setState(() =>
-                                                                    hasRowTriggered =
-                                                                        true);
-                                                                SchedulerBinding
-                                                                    .instance
-                                                                    .addPostFrameCallback((_) async => await animationsMap[
-                                                                            'rowOnActionTriggerAnimation']!
-                                                                        .controller
-                                                                        .forward(
-                                                                            from:
-                                                                                0.0));
-                                                              }
                                                             },
                                                           ),
                                                         if (_model.startIndex !=
@@ -692,6 +691,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             ),
                                                             onPressed:
                                                                 () async {
+                                                              if (animationsMap[
+                                                                      'rowOnActionTriggerAnimation'] !=
+                                                                  null) {
+                                                                animationsMap[
+                                                                        'rowOnActionTriggerAnimation']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0);
+                                                              }
                                                               setState(() {
                                                                 _model.listShownProductsList =
                                                                     [];
@@ -737,21 +746,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       _model.startIndex +
                                                                           1;
                                                                 });
-                                                              }
-                                                              if (animationsMap[
-                                                                      'rowOnActionTriggerAnimation'] !=
-                                                                  null) {
-                                                                setState(() =>
-                                                                    hasRowTriggered =
-                                                                        true);
-                                                                SchedulerBinding
-                                                                    .instance
-                                                                    .addPostFrameCallback((_) async => await animationsMap[
-                                                                            'rowOnActionTriggerAnimation']!
-                                                                        .controller
-                                                                        .forward(
-                                                                            from:
-                                                                                0.0));
                                                               }
                                                             },
                                                           ),
@@ -857,10 +851,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           width:
                                                                               70.0)),
                                                                 ).animateOnActionTrigger(
-                                                                    animationsMap[
-                                                                        'rowOnActionTriggerAnimation']!,
-                                                                    hasBeenTriggered:
-                                                                        hasRowTriggered);
+                                                                  animationsMap[
+                                                                      'rowOnActionTriggerAnimation']!,
+                                                                );
                                                               },
                                                             ),
                                                           ),
@@ -1084,7 +1077,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     child: Builder(
                                                       builder: (context) {
                                                         final categoryListHomepage = functions
-                                                            .repeatedCatefory(
+                                                            .repeatedCategory(
                                                                 containerProductsRecordList
                                                                     .map((e) =>
                                                                         e.category)
@@ -1276,7 +1269,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'mfcqgfz1' /* This Month Sale */,
+                                                      'mfcqgfz1' /* Product Feature */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1360,7 +1353,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
-                                                                        9.0),
+                                                                        8.0),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
@@ -1448,8 +1441,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               context)
                                                                           .secondaryBackground,
                                                                       borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              9.0),
+                                                                          BorderRadius
+                                                                              .only(
+                                                                        bottomLeft:
+                                                                            Radius.circular(8.0),
+                                                                        bottomRight:
+                                                                            Radius.circular(8.0),
+                                                                        topLeft:
+                                                                            Radius.circular(8.0),
+                                                                        topRight:
+                                                                            Radius.circular(8.0),
+                                                                      ),
                                                                       border:
                                                                           Border
                                                                               .all(
@@ -1558,7 +1560,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              borderRadius: BorderRadius.circular(9.0),
+                                                                              borderRadius: BorderRadius.circular(8.0),
                                                                               border: Border.all(
                                                                                 color: FlutterFlowTheme.of(context).primary,
                                                                               ),
@@ -1601,7 +1603,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 Container(
                                                                               decoration: BoxDecoration(
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                borderRadius: BorderRadius.circular(9.0),
+                                                                                borderRadius: BorderRadius.circular(8.0),
                                                                                 border: Border.all(
                                                                                   color: FlutterFlowTheme.of(context).primary,
                                                                                 ),
@@ -1628,7 +1630,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                     containerProductsRecordList[3].previewImage,
                                                                                     width: 300.0,
                                                                                     height: 250.0,
-                                                                                    fit: BoxFit.fill,
+                                                                                    fit: BoxFit.cover,
                                                                                   ),
                                                                                 ),
                                                                               ),

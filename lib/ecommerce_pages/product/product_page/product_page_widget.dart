@@ -62,6 +62,19 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
         ),
       ],
     ),
+    'conditionalBuilderOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 11.000000000000014),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
     'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -70,18 +83,6 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
           delay: 0.ms,
           duration: 600.ms,
           begin: Offset(0.0, 44.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'gridViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 11.000000000000014),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -152,10 +153,24 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
       setState(() {
         _model.isLoaded = true;
       });
+      if (animationsMap['conditionalBuilderOnActionTriggerAnimation'] != null) {
+        await animationsMap['conditionalBuilderOnActionTriggerAnimation']!
+            .controller
+            .forward(from: 0.0);
+      }
     });
 
     _model.textController ??= TextEditingController(text: widget.searchId);
     _model.textFieldFocusNode ??= FocusNode();
+
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -234,13 +249,24 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.asset(
-                                      'assets/images/MK_MONGKUL_LOGO-03.png',
-                                      width: 241.0,
-                                      height: 200.0,
-                                      fit: BoxFit.contain,
+                                  InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      FFAppState().update(() {});
+
+                                      context.pushNamed('HomePage');
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.asset(
+                                        'assets/images/MK_MONGKUL_LOGO-03.png',
+                                        width: 241.0,
+                                        height: 200.0,
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -819,6 +845,14 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                                           .cast<
                                                               ProductsRecord>();
                                                 });
+                                                if (animationsMap[
+                                                        'conditionalBuilderOnActionTriggerAnimation'] !=
+                                                    null) {
+                                                  await animationsMap[
+                                                          'conditionalBuilderOnActionTriggerAnimation']!
+                                                      .controller
+                                                      .forward(from: 0.0);
+                                                }
 
                                                 setState(() {});
                                               } else {
@@ -834,6 +868,14 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                                           .cast<
                                                               ProductsRecord>();
                                                 });
+                                                if (animationsMap[
+                                                        'conditionalBuilderOnActionTriggerAnimation'] !=
+                                                    null) {
+                                                  await animationsMap[
+                                                          'conditionalBuilderOnActionTriggerAnimation']!
+                                                      .controller
+                                                      .forward(from: 0.0);
+                                                }
 
                                                 setState(() {});
                                               }
@@ -955,7 +997,7 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                                 child: Builder(
                                                   builder: (context) {
                                                     final categoryList = functions
-                                                        .repeatedCatefory(
+                                                        .repeatedCategory(
                                                             containerProductsRecordList
                                                                 .map((e) =>
                                                                     e.category)
@@ -1048,6 +1090,17 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                                                       .cast<
                                                                           ProductsRecord>();
                                                                 });
+                                                              }
+
+                                                              if (animationsMap[
+                                                                      'conditionalBuilderOnActionTriggerAnimation'] !=
+                                                                  null) {
+                                                                await animationsMap[
+                                                                        'conditionalBuilderOnActionTriggerAnimation']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0);
                                                               }
 
                                                               setState(() {});
@@ -1224,8 +1277,7 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                                 .category,
                                           );
                                         },
-                                      ).animateOnPageLoad(animationsMap[
-                                          'gridViewOnPageLoadAnimation']!);
+                                      );
                                     },
                                   ),
                                 );
@@ -1254,6 +1306,9 @@ class _ProductPageWidgetState extends State<ProductPageWidget>
                                 );
                               }
                             },
+                          ).animateOnActionTrigger(
+                            animationsMap[
+                                'conditionalBuilderOnActionTriggerAnimation']!,
                           ),
                         ].divide(SizedBox(width: 40.0)),
                       ).animateOnPageLoad(

@@ -467,7 +467,7 @@ class _LogInWidgetState extends State<LogInWidget>
                                                                               context)
                                                                           .primary,
                                                                   borderRadius:
-                                                                      3.0,
+                                                                      4.0,
                                                                   borderWidth:
                                                                       1.0,
                                                                   buttonSize:

@@ -17,11 +17,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'order_update_model.dart';
-export 'order_update_model.dart';
+import 'order_detail_model.dart';
+export 'order_detail_model.dart';
 
-class OrderUpdateWidget extends StatefulWidget {
-  const OrderUpdateWidget({
+class OrderDetailWidget extends StatefulWidget {
+  const OrderDetailWidget({
     Key? key,
     required this.orderId,
   }) : super(key: key);
@@ -29,12 +29,12 @@ class OrderUpdateWidget extends StatefulWidget {
   final String? orderId;
 
   @override
-  _OrderUpdateWidgetState createState() => _OrderUpdateWidgetState();
+  _OrderDetailWidgetState createState() => _OrderDetailWidgetState();
 }
 
-class _OrderUpdateWidgetState extends State<OrderUpdateWidget>
+class _OrderDetailWidgetState extends State<OrderDetailWidget>
     with TickerProviderStateMixin {
-  late OrderUpdateModel _model;
+  late OrderDetailModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -63,7 +63,9 @@ class _OrderUpdateWidgetState extends State<OrderUpdateWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OrderUpdateModel());
+    _model = createModel(context, () => OrderDetailModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -1116,7 +1118,6 @@ class _OrderUpdateWidgetState extends State<OrderUpdateWidget>
                                               ),
                                               Container(
                                                 width: double.infinity,
-                                                height: 265.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -1449,74 +1450,107 @@ class _OrderUpdateWidgetState extends State<OrderUpdateWidget>
                                                         ),
                                                       ],
                                                     ),
-                                                    Container(
-                                                      width: double.infinity,
-                                                      height: 60.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    0.0,
-                                                                    16.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                AutoSizeText(
-                                                                  rowOrderRecord!
-                                                                      .address,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Kantumruy Pro',
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                AutoSizeText(
-                                                                  rowOrderRecord!
-                                                                      .location,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Kantumruy Pro',
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ].divide(SizedBox(
-                                                              height: 8.0)),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  15.0),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      16.0,
+                                                                      0.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    rowOrderRecord!
+                                                                        .address,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Kantumruy Pro',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    rowOrderRecord!
+                                                                        .location,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Kantumruy Pro',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  AutoSizeText(
+                                                                    rowOrderRecord!
+                                                                        .location,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Kantumruy Pro',
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                height: 8.0)),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
