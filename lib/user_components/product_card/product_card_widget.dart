@@ -15,7 +15,7 @@ export 'product_card_model.dart';
 
 class ProductCardWidget extends StatefulWidget {
   const ProductCardWidget({
-    Key? key,
+    super.key,
     this.image,
     this.discount,
     this.name,
@@ -26,7 +26,7 @@ class ProductCardWidget extends StatefulWidget {
     this.status,
     this.id,
     this.catregory,
-  }) : super(key: key);
+  });
 
   final String? image;
   final int? discount;
@@ -40,7 +40,7 @@ class ProductCardWidget extends StatefulWidget {
   final String? catregory;
 
   @override
-  _ProductCardWidgetState createState() => _ProductCardWidgetState();
+  State<ProductCardWidget> createState() => _ProductCardWidgetState();
 }
 
 class _ProductCardWidgetState extends State<ProductCardWidget>

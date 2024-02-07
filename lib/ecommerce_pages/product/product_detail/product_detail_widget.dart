@@ -21,16 +21,16 @@ export 'product_detail_model.dart';
 
 class ProductDetailWidget extends StatefulWidget {
   const ProductDetailWidget({
-    Key? key,
+    super.key,
     this.productId,
     this.cstegoryId,
-  }) : super(key: key);
+  });
 
   final String? productId;
   final String? cstegoryId;
 
   @override
-  _ProductDetailWidgetState createState() => _ProductDetailWidgetState();
+  State<ProductDetailWidget> createState() => _ProductDetailWidgetState();
 }
 
 class _ProductDetailWidgetState extends State<ProductDetailWidget>
@@ -209,9 +209,11 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                       child: Builder(
                                         builder: (context) {
                                           final productImage =
-                                              containerProductsRecord?.image
-                                                      ?.toList() ??
-                                                  [];
+                                              (containerProductsRecord?.image
+                                                          ?.toList() ??
+                                                      [])
+                                                  .take(4)
+                                                  .toList();
                                           return ListView.separated(
                                             padding: EdgeInsets.zero,
                                             scrollDirection: Axis.vertical,
@@ -780,6 +782,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                                     builder: (context) {
                                                       final containerVar =
                                                           containerProductsRecordList
+                                                              .toList()
+                                                              .take(4)
                                                               .toList();
                                                       return Row(
                                                         mainAxisSize:

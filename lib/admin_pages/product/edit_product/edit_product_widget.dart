@@ -26,14 +26,14 @@ export 'edit_product_model.dart';
 
 class EditProductWidget extends StatefulWidget {
   const EditProductWidget({
-    Key? key,
+    super.key,
     required this.editProdutId,
-  }) : super(key: key);
+  });
 
   final String? editProdutId;
 
   @override
-  _EditProductWidgetState createState() => _EditProductWidgetState();
+  State<EditProductWidget> createState() => _EditProductWidgetState();
 }
 
 class _EditProductWidgetState extends State<EditProductWidget>
@@ -2086,6 +2086,10 @@ class _EditProductWidgetState extends State<EditProductWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .labelMedium,
+                                                        searchTextStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)

@@ -14,14 +14,14 @@ export 'web_nav_model.dart';
 
 class WebNavWidget extends StatefulWidget {
   const WebNavWidget({
-    Key? key,
+    super.key,
     this.selectedNav,
-  }) : super(key: key);
+  });
 
   final int? selectedNav;
 
   @override
-  _WebNavWidgetState createState() => _WebNavWidgetState();
+  State<WebNavWidget> createState() => _WebNavWidgetState();
 }
 
 class _WebNavWidgetState extends State<WebNavWidget> {

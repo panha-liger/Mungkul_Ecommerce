@@ -11,10 +11,10 @@ import 'signin_admin_model.dart';
 export 'signin_admin_model.dart';
 
 class SigninAdminWidget extends StatefulWidget {
-  const SigninAdminWidget({Key? key}) : super(key: key);
+  const SigninAdminWidget({super.key});
 
   @override
-  _SigninAdminWidgetState createState() => _SigninAdminWidgetState();
+  State<SigninAdminWidget> createState() => _SigninAdminWidgetState();
 }
 
 class _SigninAdminWidgetState extends State<SigninAdminWidget> {

@@ -17,10 +17,10 @@ import 'contact_update_info_model.dart';
 export 'contact_update_info_model.dart';
 
 class ContactUpdateInfoWidget extends StatefulWidget {
-  const ContactUpdateInfoWidget({Key? key}) : super(key: key);
+  const ContactUpdateInfoWidget({super.key});
 
   @override
-  _ContactUpdateInfoWidgetState createState() =>
+  State<ContactUpdateInfoWidget> createState() =>
       _ContactUpdateInfoWidgetState();
 }
 

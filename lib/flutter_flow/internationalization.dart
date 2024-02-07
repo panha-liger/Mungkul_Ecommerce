@@ -107,18 +107,6 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
-    '84u1l9z6': {
-      'en': 'FAST DELIVERY',
-      'km': 'ការដឹកជញ្ជូនដោយឆាប់រហ័ស',
-    },
-    'x9ebwkg5': {
-      'en': '24/7 CUSTOMER SERVICE',
-      'km': 'សេវាកម្មអតិថិជន 24/7',
-    },
-    'nsonlfvx': {
-      'en': 'MONEY BACK GUARANTEE',
-      'km': 'ធានាសងលុយវិញ',
-    },
     '64n86xiy': {
       'en': 'Today\'s Discount',
       'km': 'បញ្ចុះតម្លៃថ្ងៃនេះ',
@@ -139,14 +127,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Browse By Category',
       'km': 'រកមើលតាមប្រភេទ',
     },
-    'mfcqgfz1': {
-      'en': 'Product Feature',
-      'km': 'ផលិតផលពិសេសៗ',
-    },
-    'hajjb89j': {
-      'en': 'New Arrival',
-      'km': 'ទំនិញមកដល់​ថ្មី',
-    },
     'cy1cl69r': {
       'en': 'Best Selling Products',
       'km': 'ទំនិញលក់ដាច់បំផុត',
@@ -154,6 +134,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'vymv7nrq': {
       'en': 'Best Selling Products',
       'km': 'ផលិតផលលក់ដាច់បំផុត',
+    },
+    'mfcqgfz1': {
+      'en': 'Product Feature',
+      'km': 'ផលិតផលពិសេសៗ',
+    },
+    'hajjb89j': {
+      'en': 'New Arrival',
+      'km': 'ទំនិញមកដល់​ថ្មី',
     },
     'uid058wd': {
       'en': 'View All Products',
@@ -163,9 +151,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Explore Our Products',
       'km': 'ផលិតផលរបស់យើង',
     },
-    'oaec1yki': {
+    '2rnk5dis': {
       'en': 'View All Our Product',
-      'km': 'មើលផលិតផលទាំងអស់',
+      'km': '',
+    },
+    '84u1l9z6': {
+      'en': 'FAST DELIVERY',
+      'km': 'ការដឹកជញ្ជូនដោយឆាប់រហ័ស',
+    },
+    'x9ebwkg5': {
+      'en': '24/7 CUSTOMER SERVICE',
+      'km': 'សេវាកម្មអតិថិជន 24/7',
+    },
+    'nsonlfvx': {
+      'en': 'MONEY BACK GUARANTEE',
+      'km': 'ធានាសងលុយវិញ',
     },
     'h6pefxvy': {
       'en': 'Home',
@@ -197,6 +197,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'hfn2nhj5': {
       'en': 'Resend Code',
       'km': 'ផ្ញើលេខកូដឡើងវិញ',
+    },
+    '0e0ujw0j': {
+      'en': 'Google',
+      'km': '',
     },
     'ntknrcgm': {
       'en': 'Haven\'t had account? ',
@@ -237,16 +241,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Create Account',
       'km': 'បង្កើតគណនី',
     },
-    'p7vh4l9s': {
-      'en': 'Already Have account? ',
-      'km': 'មានគណនីរួចហើយ?',
-    },
-    't93h8nn1': {
-      'en': 'Log In',
-      'km': 'ចូលគណនី',
-    },
     'au1kjqr1': {
-      'en': 'Google',
+      'en': 'Sign Up with Google',
       'km': 'Google',
     },
     'dqxdgbqw': {
@@ -256,6 +252,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'w6kvh9tk': {
       'en': 'Resend Code',
       'km': 'ផ្ញើលេខកូដឡើងវិញ',
+    },
+    'qht21gp9': {
+      'en': 'Already Have account? ',
+      'km': '',
+    },
+    'k2cqra3n': {
+      'en': 'Log In',
+      'km': '',
     },
     'kq30o74b': {
       'en': 'Home',
@@ -299,13 +303,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Cart
   {
-    '6actum8c': {
+    'od8imb0p': {
       'en': 'Your Cart',
-      'km': 'រទេះរបស់អ្នក។',
+      'km': '',
     },
-    'czfamzfo': {
+    'jj1farhu': {
       'en': 'Below is the list of items in your cart.',
-      'km': 'ខាងក្រោមនេះគឺជាបញ្ជីនៃទំនិញនៅក្នុងរទេះរបស់អ្នក។',
+      'km': '',
     },
     'nus25p16': {
       'en': 'Remove',
@@ -318,6 +322,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     're1f9ii7': {
       'en': 'Remove All',
       'km': 'លុបចេញទាំងអស់។',
+    },
+    '31x84tyq': {
+      'en': 'Add More Iteam',
+      'km': '',
     },
     'oibcjac7': {
       'en': 'Delivery Option For',
@@ -474,13 +482,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Total',
       'km': 'តម្លៃសរុប',
     },
-    'hyj9l3ac': {
-      'en': 'Cash On Delivery',
-      'km': 'សាច់ប្រាក់លើការដឹកជញ្ជូន',
-    },
     'i9bih6u4': {
       'en': 'Online payment',
       'km': 'ការទូទាត់តាមអ៊ីនធឺណិត',
+    },
+    'hyj9l3ac': {
+      'en': 'Cash On Delivery',
+      'km': 'សាច់ប្រាក់លើការដឹកជញ្ជូន',
     },
     '5gehuddh': {
       'en': 'Place order',
@@ -899,75 +907,75 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Drag and drop image here, or click add image',
       'km': 'អូស និងទម្លាក់រូបភាពនៅទីនេះ ឬចុចបន្ថែមរូបភាព',
     },
-    'aftyvjv4': {
+    'm4nd1poi': {
       'en': 'General Information',
-      'km': 'ព័ត៌មាន​ទូទៅ',
+      'km': '',
     },
-    'bic6n9ds': {
+    '0ac7n4n2': {
       'en': 'Base Price',
-      'km': 'តម្លៃមូលដ្ឋាន',
+      'km': '',
     },
-    'sl2610r5': {
+    'jkfpy5h3': {
       'en': 'Type the price here....',
-      'km': 'វាយតំលៃនៅទីនេះ....',
+      'km': '',
     },
-    'txnvds62': {
+    'c18d2v72': {
       'en': 'Description',
-      'km': 'ការពិពណ៌នា',
+      'km': '',
     },
-    't6yeoksq': {
+    'm7emyo2p': {
       'en': 'Statud Type',
-      'km': 'ប្រភេទឋានៈ',
+      'km': '',
     },
-    '24lrods7': {
+    'v9rd8mh1': {
       'en': 'In stock',
-      'km': 'នៅ​ក្នុង​ស្តុក',
+      'km': '',
     },
-    '9dkrj6u9': {
+    'kjepsh8n': {
       'en': 'Out Stock',
-      'km': 'អស់ពីស្តុក',
+      'km': '',
     },
-    'ev92ixrf': {
+    'mdlea9jo': {
       'en': 'Status Type',
-      'km': 'ប្រភេទស្ថានភាព',
+      'km': '',
     },
-    'bfdha4s7': {
+    'c822453p': {
       'en': 'Search for an item...',
-      'km': 'ស្វែងរកធាតុ...',
+      'km': '',
     },
-    '4dbnv5z3': {
+    'cznq7dyh': {
       'en': 'Discount Precentage (%)',
-      'km': 'បញ្ចុះតម្លៃមុន (%)',
+      'km': '',
     },
-    'w8i0kjfv': {
+    'dleuiii8': {
       'en': 'Type the Discount Percentage here....',
-      'km': 'វាយពាក្យ Discount Percent នៅទីនេះ....',
+      'km': '',
     },
-    'wcxhd4xv': {
+    '15c0c50u': {
       'en': 'Category',
-      'km': 'ប្រភេទ',
+      'km': '',
     },
-    'yeghl97v': {
+    '654e1otm': {
       'en': 'Option 1',
-      'km': 'ជម្រើសទី 1',
+      'km': '',
     },
-    'eg9jzbyb': {
+    '7z9q567u': {
       'en': 'Please select...',
-      'km': 'សូមជ្រើសរើស...',
+      'km': '',
     },
-    'pvpt36hp': {
+    'bmomc6s4': {
       'en': 'Search for an item...',
-      'km': 'ស្វែងរកធាតុ...',
+      'km': '',
     },
-    'yyf67bv0': {
+    't4i6wsmf': {
       'en': 'Add Category',
       'km': '',
     },
-    'nq4ndkfn': {
+    '7crn8kj5': {
       'en': 'Choose Category',
       'km': '',
     },
-    'k4d43j83': {
+    'blhnsewn': {
       'en': 'Type Category here....',
       'km': '',
     },
@@ -1285,6 +1293,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'klk8ggqe': {
       'en': 'Send Massage',
       'km': 'ផ្ញើសារ',
+    },
+    'fqgebkqs': {
+      'en': 'Our location',
+      'km': '',
     },
     'qfmyofv8': {
       'en': 'Home',

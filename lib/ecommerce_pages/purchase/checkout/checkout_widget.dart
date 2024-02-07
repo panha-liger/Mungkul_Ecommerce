@@ -28,17 +28,16 @@ export 'checkout_model.dart';
 
 class CheckoutWidget extends StatefulWidget {
   const CheckoutWidget({
-    Key? key,
+    super.key,
     this.deliveryOption,
     bool? isGetinplace,
-  })  : this.isGetinplace = isGetinplace ?? false,
-        super(key: key);
+  }) : this.isGetinplace = isGetinplace ?? false;
 
   final String? deliveryOption;
   final bool isGetinplace;
 
   @override
-  _CheckoutWidgetState createState() => _CheckoutWidgetState();
+  State<CheckoutWidget> createState() => _CheckoutWidgetState();
 }
 
 class _CheckoutWidgetState extends State<CheckoutWidget>
@@ -551,6 +550,10 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .labelMedium,
+                                                    searchTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium,
                                                     textStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -1047,6 +1050,10 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .labelMedium,
+                                                    searchTextStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium,
                                                     textStyle:
                                                         FlutterFlowTheme.of(
                                                                 context)
@@ -2138,73 +2145,6 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Theme(
-                                                data: ThemeData(
-                                                  checkboxTheme:
-                                                      CheckboxThemeData(
-                                                    visualDensity:
-                                                        VisualDensity.compact,
-                                                    materialTapTargetSize:
-                                                        MaterialTapTargetSize
-                                                            .shrinkWrap,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              4.0),
-                                                    ),
-                                                  ),
-                                                  unselectedWidgetColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryText,
-                                                ),
-                                                child: Checkbox(
-                                                  value: _model
-                                                      .onDeliveryValue ??= true,
-                                                  onChanged: (newValue) async {
-                                                    setState(() =>
-                                                        _model.onDeliveryValue =
-                                                            newValue!);
-                                                    if (newValue!) {
-                                                      setState(() {
-                                                        _model.abaValue = false;
-                                                      });
-                                                    } else {
-                                                      setState(() {
-                                                        _model.abaValue = true;
-                                                      });
-                                                    }
-                                                  },
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  checkColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .info,
-                                                ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'hyj9l3ac' /* Cash On Delivery */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ].divide(SizedBox(width: 16.0)),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 6.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -2285,6 +2225,73 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                   height: 30.0,
                                                   fit: BoxFit.cover,
                                                 ),
+                                              ),
+                                            ].divide(SizedBox(width: 16.0)),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 10.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Theme(
+                                                data: ThemeData(
+                                                  checkboxTheme:
+                                                      CheckboxThemeData(
+                                                    visualDensity:
+                                                        VisualDensity.compact,
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                  ),
+                                                  unselectedWidgetColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryText,
+                                                ),
+                                                child: Checkbox(
+                                                  value: _model
+                                                      .onDeliveryValue ??= true,
+                                                  onChanged: (newValue) async {
+                                                    setState(() =>
+                                                        _model.onDeliveryValue =
+                                                            newValue!);
+                                                    if (newValue!) {
+                                                      setState(() {
+                                                        _model.abaValue = false;
+                                                      });
+                                                    } else {
+                                                      setState(() {
+                                                        _model.abaValue = true;
+                                                      });
+                                                    }
+                                                  },
+                                                  activeColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                  checkColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .info,
+                                                ),
+                                              ),
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'hyj9l3ac' /* Cash On Delivery */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
                                               ),
                                             ].divide(SizedBox(width: 16.0)),
                                           ),
@@ -2414,6 +2421,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                             builder:
                                                                 (dialogContext) {
                                                               return Dialog(
+                                                                elevation: 0,
                                                                 insetPadding:
                                                                     EdgeInsets
                                                                         .zero,
@@ -2672,6 +2680,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                               builder:
                                                                   (dialogContext) {
                                                                 return Dialog(
+                                                                  elevation: 0,
                                                                   insetPadding:
                                                                       EdgeInsets
                                                                           .zero,
@@ -2734,6 +2743,7 @@ class _CheckoutWidgetState extends State<CheckoutWidget>
                                                               builder:
                                                                   (dialogContext) {
                                                                 return Dialog(
+                                                                  elevation: 0,
                                                                   insetPadding:
                                                                       EdgeInsets
                                                                           .zero,

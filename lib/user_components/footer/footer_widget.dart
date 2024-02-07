@@ -11,10 +11,10 @@ import 'footer_model.dart';
 export 'footer_model.dart';
 
 class FooterWidget extends StatefulWidget {
-  const FooterWidget({Key? key}) : super(key: key);
+  const FooterWidget({super.key});
 
   @override
-  _FooterWidgetState createState() => _FooterWidgetState();
+  State<FooterWidget> createState() => _FooterWidgetState();
 }
 
 class _FooterWidgetState extends State<FooterWidget> {

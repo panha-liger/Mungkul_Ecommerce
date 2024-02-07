@@ -20,14 +20,14 @@ export 'sign_up_editio1_model.dart';
 
 class SignUpEditio1Widget extends StatefulWidget {
   const SignUpEditio1Widget({
-    Key? key,
+    super.key,
     this.phonenumber,
-  }) : super(key: key);
+  });
 
   final String? phonenumber;
 
   @override
-  _SignUpEditio1WidgetState createState() => _SignUpEditio1WidgetState();
+  State<SignUpEditio1Widget> createState() => _SignUpEditio1WidgetState();
 }
 
 class _SignUpEditio1WidgetState extends State<SignUpEditio1Widget>

@@ -73,10 +73,10 @@ class CheckoutModel extends FlutterFlowModel<CheckoutWidget> {
   FocusNode? additionalDetailFocusNode;
   TextEditingController? additionalDetailController;
   String? Function(BuildContext, String?)? additionalDetailControllerValidator;
-  // State field(s) for OnDelivery widget.
-  bool? onDeliveryValue;
   // State field(s) for ABA widget.
   bool? abaValue;
+  // State field(s) for OnDelivery widget.
+  bool? onDeliveryValue;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   OrderRecord? orderPlaced;
   // Model for footer component.

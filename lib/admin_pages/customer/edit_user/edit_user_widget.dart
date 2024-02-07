@@ -14,14 +14,14 @@ export 'edit_user_model.dart';
 
 class EditUserWidget extends StatefulWidget {
   const EditUserWidget({
-    Key? key,
+    super.key,
     required this.editId,
-  }) : super(key: key);
+  });
 
   final DocumentReference? editId;
 
   @override
-  _EditUserWidgetState createState() => _EditUserWidgetState();
+  State<EditUserWidget> createState() => _EditUserWidgetState();
 }
 
 class _EditUserWidgetState extends State<EditUserWidget> {

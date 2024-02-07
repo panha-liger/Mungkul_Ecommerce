@@ -23,14 +23,14 @@ export 'advertisment_banner_model.dart';
 
 class AdvertismentBannerWidget extends StatefulWidget {
   const AdvertismentBannerWidget({
-    Key? key,
+    super.key,
     this.bannerId,
-  }) : super(key: key);
+  });
 
   final String? bannerId;
 
   @override
-  _AdvertismentBannerWidgetState createState() =>
+  State<AdvertismentBannerWidget> createState() =>
       _AdvertismentBannerWidgetState();
 }
 
@@ -769,6 +769,10 @@ class _AdvertismentBannerWidgetState extends State<AdvertismentBannerWidget>
                                                               FlutterFlowTheme.of(
                                                                       context)
                                                                   .labelMedium,
+                                                          searchTextStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium,
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)

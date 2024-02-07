@@ -14,10 +14,10 @@ import 'advertisement_banner_list_model.dart';
 export 'advertisement_banner_list_model.dart';
 
 class AdvertisementBannerListWidget extends StatefulWidget {
-  const AdvertisementBannerListWidget({Key? key}) : super(key: key);
+  const AdvertisementBannerListWidget({super.key});
 
   @override
-  _AdvertisementBannerListWidgetState createState() =>
+  State<AdvertisementBannerListWidget> createState() =>
       _AdvertisementBannerListWidgetState();
 }
 

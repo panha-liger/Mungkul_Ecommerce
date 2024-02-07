@@ -20,10 +20,10 @@ import 'customer_list_model.dart';
 export 'customer_list_model.dart';
 
 class CustomerListWidget extends StatefulWidget {
-  const CustomerListWidget({Key? key}) : super(key: key);
+  const CustomerListWidget({super.key});
 
   @override
-  _CustomerListWidgetState createState() => _CustomerListWidgetState();
+  State<CustomerListWidget> createState() => _CustomerListWidgetState();
 }
 
 class _CustomerListWidgetState extends State<CustomerListWidget>

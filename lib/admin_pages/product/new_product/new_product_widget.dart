@@ -24,10 +24,10 @@ import 'new_product_model.dart';
 export 'new_product_model.dart';
 
 class NewProductWidget extends StatefulWidget {
-  const NewProductWidget({Key? key}) : super(key: key);
+  const NewProductWidget({super.key});
 
   @override
-  _NewProductWidgetState createState() => _NewProductWidgetState();
+  State<NewProductWidget> createState() => _NewProductWidgetState();
 }
 
 class _NewProductWidgetState extends State<NewProductWidget>
@@ -1765,7 +1765,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'aftyvjv4' /* General Information */,
+                                                      'm4nd1poi' /* General Information */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1779,7 +1779,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'bic6n9ds' /* Base Price */,
+                                                      '0ac7n4n2' /* Base Price */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1813,7 +1813,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                      'sl2610r5' /* Type the price here.... */,
+                                                      'jkfpy5h3' /* Type the price here.... */,
                                                     ),
                                                     hintStyle:
                                                         FlutterFlowTheme.of(
@@ -1900,7 +1900,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'txnvds62' /* Description */,
+                                                      'c18d2v72' /* Description */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1936,7 +1936,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                't6yeoksq' /* Statud Type */,
+                                                                'm7emyo2p' /* Statud Type */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -1960,12 +1960,12 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '24lrods7' /* In stock */,
+                                                                  'v9rd8mh1' /* In stock */,
                                                                 ),
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '9dkrj6u9' /* Out Stock */,
+                                                                  'kjepsh8n' /* Out Stock */,
                                                                 )
                                                               ],
                                                               onChanged: (val) =>
@@ -1982,7 +1982,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                'ev92ixrf' /* Status Type */,
+                                                                'mdlea9jo' /* Status Type */,
                                                               ),
                                                               icon: Icon(
                                                                 Icons
@@ -2030,7 +2030,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                               FFLocalizations.of(
                                                                       context)
                                                                   .getText(
-                                                                '4dbnv5z3' /* Discount Precentage (%) */,
+                                                                'cznq7dyh' /* Discount Precentage (%) */,
                                                               ),
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -2079,7 +2079,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                   hintText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'w8i0kjfv' /* Type the Discount Percentage h... */,
+                                                                    'dleuiii8' /* Type the Discount Percentage h... */,
                                                                   ),
                                                                   hintStyle: FlutterFlowTheme.of(
                                                                           context)
@@ -2186,7 +2186,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'wcxhd4xv' /* Category */,
+                                                              '15c0c50u' /* Category */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -2228,19 +2228,23 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                       FlutterFlowTheme.of(
                                                                               context)
                                                                           .labelMedium,
+                                                                  searchTextStyle:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium,
                                                                   textStyle: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium,
                                                                   hintText: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'eg9jzbyb' /* Please select... */,
+                                                                    '7z9q567u' /* Please select... */,
                                                                   ),
                                                                   searchHintText:
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                    'pvpt36hp' /* Search for an item... */,
+                                                                    'bmomc6s4' /* Search for an item... */,
                                                                   ),
                                                                   icon: Icon(
                                                                     Icons
@@ -2291,7 +2295,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                   text: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'yyf67bv0' /* Add Category */,
+                                                                    't4i6wsmf' /* Add Category */,
                                                                   ),
                                                                   icon: Icon(
                                                                     Icons.add,
@@ -2354,7 +2358,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                   text: FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'nq4ndkfn' /* Choose Category */,
+                                                                    '7crn8kj5' /* Choose Category */,
                                                                   ),
                                                                   icon: Icon(
                                                                     Icons
@@ -2440,7 +2444,7 @@ class _NewProductWidgetState extends State<NewProductWidget>
                                                                             FlutterFlowTheme.of(context).labelMedium,
                                                                         hintText:
                                                                             FFLocalizations.of(context).getText(
-                                                                          'k4d43j83' /* Type Category here.... */,
+                                                                          'blhnsewn' /* Type Category here.... */,
                                                                         ),
                                                                         hintStyle:
                                                                             FlutterFlowTheme.of(context).labelLarge,

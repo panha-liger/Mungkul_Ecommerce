@@ -21,10 +21,10 @@ import 'admin_dashboard_model.dart';
 export 'admin_dashboard_model.dart';
 
 class AdminDashboardWidget extends StatefulWidget {
-  const AdminDashboardWidget({Key? key}) : super(key: key);
+  const AdminDashboardWidget({super.key});
 
   @override
-  _AdminDashboardWidgetState createState() => _AdminDashboardWidgetState();
+  State<AdminDashboardWidget> createState() => _AdminDashboardWidgetState();
 }
 
 class _AdminDashboardWidgetState extends State<AdminDashboardWidget>

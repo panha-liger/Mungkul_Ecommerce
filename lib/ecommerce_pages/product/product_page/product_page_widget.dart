@@ -26,13 +26,12 @@ export 'product_page_model.dart';
 
 class ProductPageWidget extends StatefulWidget {
   const ProductPageWidget({
-    Key? key,
+    super.key,
     this.categoryId,
     this.searchId,
     this.discountId,
     bool? isDiscount,
-  })  : this.isDiscount = isDiscount ?? false,
-        super(key: key);
+  }) : this.isDiscount = isDiscount ?? false;
 
   final String? categoryId;
   final String? searchId;
@@ -40,7 +39,7 @@ class ProductPageWidget extends StatefulWidget {
   final bool isDiscount;
 
   @override
-  _ProductPageWidgetState createState() => _ProductPageWidgetState();
+  State<ProductPageWidget> createState() => _ProductPageWidgetState();
 }
 
 class _ProductPageWidgetState extends State<ProductPageWidget>

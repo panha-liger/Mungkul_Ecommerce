@@ -17,10 +17,10 @@ import 'sign_up_popup_model.dart';
 export 'sign_up_popup_model.dart';
 
 class SignUpPopupWidget extends StatefulWidget {
-  const SignUpPopupWidget({Key? key}) : super(key: key);
+  const SignUpPopupWidget({super.key});
 
   @override
-  _SignUpPopupWidgetState createState() => _SignUpPopupWidgetState();
+  State<SignUpPopupWidget> createState() => _SignUpPopupWidgetState();
 }
 
 class _SignUpPopupWidgetState extends State<SignUpPopupWidget>

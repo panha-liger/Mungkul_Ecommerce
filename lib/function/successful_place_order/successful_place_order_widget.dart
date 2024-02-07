@@ -12,10 +12,10 @@ import 'successful_place_order_model.dart';
 export 'successful_place_order_model.dart';
 
 class SuccessfulPlaceOrderWidget extends StatefulWidget {
-  const SuccessfulPlaceOrderWidget({Key? key}) : super(key: key);
+  const SuccessfulPlaceOrderWidget({super.key});
 
   @override
-  _SuccessfulPlaceOrderWidgetState createState() =>
+  State<SuccessfulPlaceOrderWidget> createState() =>
       _SuccessfulPlaceOrderWidgetState();
 }
 

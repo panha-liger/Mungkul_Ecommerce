@@ -22,10 +22,10 @@ import 'product_list_model.dart';
 export 'product_list_model.dart';
 
 class ProductListWidget extends StatefulWidget {
-  const ProductListWidget({Key? key}) : super(key: key);
+  const ProductListWidget({super.key});
 
   @override
-  _ProductListWidgetState createState() => _ProductListWidgetState();
+  State<ProductListWidget> createState() => _ProductListWidgetState();
 }
 
 class _ProductListWidgetState extends State<ProductListWidget>

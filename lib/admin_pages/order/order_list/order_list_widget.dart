@@ -22,10 +22,10 @@ import 'order_list_model.dart';
 export 'order_list_model.dart';
 
 class OrderListWidget extends StatefulWidget {
-  const OrderListWidget({Key? key}) : super(key: key);
+  const OrderListWidget({super.key});
 
   @override
-  _OrderListWidgetState createState() => _OrderListWidgetState();
+  State<OrderListWidget> createState() => _OrderListWidgetState();
 }
 
 class _OrderListWidgetState extends State<OrderListWidget>

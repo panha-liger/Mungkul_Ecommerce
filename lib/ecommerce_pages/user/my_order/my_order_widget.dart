@@ -20,10 +20,10 @@ import 'my_order_model.dart';
 export 'my_order_model.dart';
 
 class MyOrderWidget extends StatefulWidget {
-  const MyOrderWidget({Key? key}) : super(key: key);
+  const MyOrderWidget({super.key});
 
   @override
-  _MyOrderWidgetState createState() => _MyOrderWidgetState();
+  State<MyOrderWidget> createState() => _MyOrderWidgetState();
 }
 
 class _MyOrderWidgetState extends State<MyOrderWidget> {
@@ -116,28 +116,14 @@ class _MyOrderWidgetState extends State<MyOrderWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: Container(
-                                width: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x33000000),
-                                      offset: Offset(0.0, 2.0),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: wrapWithModel(
-                                    model: _model.userAccountModel,
-                                    updateCallback: () => setState(() {}),
-                                    child: UserAccountWidget(
-                                      selection: 2,
-                                    ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    20.0, 20.0, 12.0, 12.0),
+                                child: wrapWithModel(
+                                  model: _model.userAccountModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: UserAccountWidget(
+                                    selection: 2,
                                   ),
                                 ),
                               ),

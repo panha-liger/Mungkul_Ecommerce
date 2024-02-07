@@ -16,10 +16,10 @@ import 'account_model.dart';
 export 'account_model.dart';
 
 class AccountWidget extends StatefulWidget {
-  const AccountWidget({Key? key}) : super(key: key);
+  const AccountWidget({super.key});
 
   @override
-  _AccountWidgetState createState() => _AccountWidgetState();
+  State<AccountWidget> createState() => _AccountWidgetState();
 }
 
 class _AccountWidgetState extends State<AccountWidget> {
@@ -106,28 +106,13 @@ class _AccountWidgetState extends State<AccountWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: Container(
-                                height: 500.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x33000000),
-                                      offset: Offset(0.0, 2.0),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(12.0),
-                                  child: wrapWithModel(
-                                    model: _model.userAccountModel,
-                                    updateCallback: () => setState(() {}),
-                                    child: UserAccountWidget(
-                                      selection: 1,
-                                    ),
+                              child: Padding(
+                                padding: EdgeInsets.all(12.0),
+                                child: wrapWithModel(
+                                  model: _model.userAccountModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: UserAccountWidget(
+                                    selection: 1,
                                   ),
                                 ),
                               ),

@@ -15,15 +15,14 @@ export 'hearder_model.dart';
 
 class HearderWidget extends StatefulWidget {
   const HearderWidget({
-    Key? key,
+    super.key,
     bool? inProductPage,
-  })  : this.inProductPage = inProductPage ?? false,
-        super(key: key);
+  }) : this.inProductPage = inProductPage ?? false;
 
   final bool inProductPage;
 
   @override
-  _HearderWidgetState createState() => _HearderWidgetState();
+  State<HearderWidget> createState() => _HearderWidgetState();
 }
 
 class _HearderWidgetState extends State<HearderWidget> {
@@ -478,12 +477,7 @@ class _HearderWidgetState extends State<HearderWidget> {
                               ),
                               FlutterFlowLanguageSelector(
                                 width: 120.0,
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                borderColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                dropdownColor:
-                                    FlutterFlowTheme.of(context).primary,
+                                dropdownColor: Color(0x00000000),
                                 dropdownIconColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
                                 borderRadius: 8.0,
@@ -514,7 +508,7 @@ class _HearderWidgetState extends State<HearderWidget> {
           ),
           Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
-            height: 15.0,
+            height: 10.0,
             decoration: BoxDecoration(
               color: Color(0xFFE2C721),
             ),

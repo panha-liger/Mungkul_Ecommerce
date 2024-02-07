@@ -21,14 +21,14 @@ export 'my_order_detail_model.dart';
 
 class MyOrderDetailWidget extends StatefulWidget {
   const MyOrderDetailWidget({
-    Key? key,
+    super.key,
     this.orderDetailId,
-  }) : super(key: key);
+  });
 
   final String? orderDetailId;
 
   @override
-  _MyOrderDetailWidgetState createState() => _MyOrderDetailWidgetState();
+  State<MyOrderDetailWidget> createState() => _MyOrderDetailWidgetState();
 }
 
 class _MyOrderDetailWidgetState extends State<MyOrderDetailWidget>

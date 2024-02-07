@@ -9,10 +9,10 @@ import 'product_category_model.dart';
 export 'product_category_model.dart';
 
 class ProductCategoryWidget extends StatefulWidget {
-  const ProductCategoryWidget({Key? key}) : super(key: key);
+  const ProductCategoryWidget({super.key});
 
   @override
-  _ProductCategoryWidgetState createState() => _ProductCategoryWidgetState();
+  State<ProductCategoryWidget> createState() => _ProductCategoryWidgetState();
 }
 
 class _ProductCategoryWidgetState extends State<ProductCategoryWidget> {
