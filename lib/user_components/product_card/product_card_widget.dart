@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -48,7 +49,28 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
   late ProductCardModel _model;
 
   final animationsMap = {
-    'containerOnActionTriggerAnimation': AnimationInfo(
+    'containerOnActionTriggerAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      applyInitialState: true,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 6.0),
+          end: Offset(0.0, 0.0),
+        ),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 180.ms,
+          begin: 0.11,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnActionTriggerAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onActionTrigger,
       applyInitialState: true,
       effects: [
@@ -166,6 +188,72 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                           ),
                         ),
                       ),
+                      if (widget.discount! > 0)
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, -1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                7.0, 7.0, 0.0, 0.0),
+                            child: Container(
+                              width: 60.0,
+                              height: 30.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context).primary,
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: RichText(
+                                  textScaleFactor:
+                                      MediaQuery.of(context).textScaleFactor,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text:
+                                            FFLocalizations.of(context).getText(
+                                          'qj5hvpq7' /* % */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Kantumruy Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      TextSpan(
+                                        text: valueOrDefault<String>(
+                                          widget.discount?.toString(),
+                                          '00',
+                                        ),
+                                        style: TextStyle(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16.0,
+                                        ),
+                                      )
+                                    ],
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Kantumruy Pro',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontSize: 16.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ).animateOnActionTrigger(
+                              animationsMap[
+                                  'containerOnActionTriggerAnimation1']!,
+                            ),
+                          ),
+                        ),
                       Builder(
                         builder: (context) {
                           if (FFAppState()
@@ -259,7 +347,7 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
                                 ),
                               ).animateOnActionTrigger(
                                 animationsMap[
-                                    'containerOnActionTriggerAnimation']!,
+                                    'containerOnActionTriggerAnimation2']!,
                               ),
                             );
                           } else {
@@ -464,21 +552,39 @@ class _ProductCardWidgetState extends State<ProductCardWidget>
       ),
       onEnter: ((event) async {
         setState(() => _model.mouseRegionHovered = true);
-        if (animationsMap['containerOnActionTriggerAnimation'] != null) {
-          animationsMap['containerOnActionTriggerAnimation']!
+        if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
+          animationsMap['containerOnActionTriggerAnimation2']!
               .controller
               .forward(from: 0.0);
+        }
+        if (widget.discount! > 0) {
+          if (animationsMap['containerOnActionTriggerAnimation1'] != null) {
+            animationsMap['containerOnActionTriggerAnimation1']!
+                .controller
+                .forward(from: 0.0);
+          }
         }
       }),
       onExit: ((event) async {
         setState(() => _model.mouseRegionHovered = false);
-        if (animationsMap['containerOnActionTriggerAnimation'] != null) {
-          animationsMap['containerOnActionTriggerAnimation']!
+        if (animationsMap['containerOnActionTriggerAnimation2'] != null) {
+          animationsMap['containerOnActionTriggerAnimation2']!
               .controller
               .forward()
-              .whenComplete(animationsMap['containerOnActionTriggerAnimation']!
+              .whenComplete(animationsMap['containerOnActionTriggerAnimation2']!
                   .controller
                   .reverse);
+        }
+        if (widget.discount! > 0) {
+          if (animationsMap['containerOnActionTriggerAnimation1'] != null) {
+            animationsMap['containerOnActionTriggerAnimation1']!
+                .controller
+                .forward()
+                .whenComplete(
+                    animationsMap['containerOnActionTriggerAnimation1']!
+                        .controller
+                        .reverse);
+          }
         }
       }),
     );

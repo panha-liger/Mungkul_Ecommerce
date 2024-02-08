@@ -828,9 +828,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Add to Cart',
       'km': 'បញ្ចូលទៅក្នុងរទេះ',
     },
-    'xskecax4': {
+    '9085bt5f': {
       'en': 'Remove',
-      'km': 'ដកចេញ',
+      'km': '',
     },
     'avvbrbpa': {
       'en': 'Related Products',
@@ -1294,7 +1294,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Send Massage',
       'km': 'ផ្ញើសារ',
     },
-    'fqgebkqs': {
+    '2f856mwh': {
       'en': 'Our location',
       'km': '',
     },
@@ -1638,6 +1638,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ProductCard
   {
+    'qj5hvpq7': {
+      'en': '%',
+      'km': '',
+    },
     '7oy2rv0y': {
       'en': 'Add To Cart',
       'km': 'បញ្ចូលទៅក្នុងរទេះ',
@@ -1675,10 +1679,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'n2f4rjc3': {
       'en': 'Banner List',
-      'km': '',
-    },
-    'h8ksm4fi': {
-      'en': 'Button',
       'km': '',
     },
   },

@@ -236,636 +236,632 @@ class _LogInWidgetState extends State<LogInWidget>
                                           Align(
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  if (_model.isSent == false)
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      3.0,
-                                                                      0.0),
-                                                          child: Container(
-                                                            width: 64.0,
-                                                            height: 60.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                if (_model.isSent == false)
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    3.0,
+                                                                    0.0),
+                                                        child: Container(
+                                                          width: 64.0,
+                                                          height: 60.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        9.0),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'lmtifhvp' /* +855 */,
+                                                              ),
+                                                              style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .primary,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          9.0),
+                                                                  .labelLarge
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Kantumruy Pro',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                  ),
                                                             ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'lmtifhvp' /* +855 */,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          width: 398.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Container(
+                                                            width: 300.0,
+                                                            child:
+                                                                TextFormField(
+                                                              controller: _model
+                                                                  .phoneNoController,
+                                                              focusNode: _model
+                                                                  .phoneNoFocusNode,
+                                                              onChanged: (_) =>
+                                                                  EasyDebounce
+                                                                      .debounce(
+                                                                '_model.phoneNoController',
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        100),
+                                                                () => setState(
+                                                                    () {}),
+                                                              ),
+                                                              autofocus: true,
+                                                              autofillHints: [
+                                                                AutofillHints
+                                                                    .telephoneNumberNational
+                                                              ],
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                labelText:
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                  '9mu558yh' /* Phone number */,
                                                                 ),
-                                                                style: FlutterFlowTheme.of(
+                                                                labelStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelLarge
+                                                                    .bodyMedium,
+                                                                errorStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Kantumruy Pro',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryBackground,
+                                                                      color: Color(
+                                                                          0xFF0B0001),
                                                                     ),
+                                                                enabledBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFE0E3E7),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            9.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            9.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                  ),
+                                                                ),
+                                                                focusedBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            9.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            9.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                  ),
+                                                                ),
+                                                                errorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFF03842),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            9.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            9.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                  ),
+                                                                ),
+                                                                focusedErrorBorder:
+                                                                    OutlineInputBorder(
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Color(
+                                                                        0xFFF03842),
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            9.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            9.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            0.0),
+                                                                  ),
+                                                                ),
+                                                                contentPadding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            24.0),
                                                               ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Expanded(
-                                                          child: Container(
-                                                            width: 398.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
+                                                              style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Container(
-                                                              width: 300.0,
-                                                              child:
-                                                                  TextFormField(
-                                                                controller: _model
-                                                                    .phoneNoController,
-                                                                focusNode: _model
-                                                                    .phoneNoFocusNode,
-                                                                onChanged: (_) =>
-                                                                    EasyDebounce
-                                                                        .debounce(
-                                                                  '_model.phoneNoController',
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          100),
-                                                                  () => setState(
-                                                                      () {}),
-                                                                ),
-                                                                autofocus: true,
-                                                                autofillHints: [
-                                                                  AutofillHints
-                                                                      .telephoneNumberNational
-                                                                ],
-                                                                obscureText:
-                                                                    false,
-                                                                decoration:
-                                                                    InputDecoration(
-                                                                  labelText: FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                    '9mu558yh' /* Phone number */,
-                                                                  ),
-                                                                  labelStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium,
-                                                                  errorStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Kantumruy Pro',
-                                                                        color: Color(
-                                                                            0xFF0B0001),
-                                                                      ),
-                                                                  enabledBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0xFFE0E3E7),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              9.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              9.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                  focusedBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              9.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              9.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                  errorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0xFFF03842),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              9.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              9.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                  focusedErrorBorder:
-                                                                      OutlineInputBorder(
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Color(
-                                                                          0xFFF03842),
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              9.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              9.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                  contentPadding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              24.0),
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium,
-                                                                keyboardType:
-                                                                    TextInputType
-                                                                        .number,
-                                                                validator: _model
-                                                                    .phoneNoControllerValidator
-                                                                    .asValidator(
-                                                                        context),
-                                                              ),
+                                                                  .bodyMedium,
+                                                              keyboardType:
+                                                                  TextInputType
+                                                                      .number,
+                                                              validator: _model
+                                                                  .phoneNoControllerValidator
+                                                                  .asValidator(
+                                                                      context),
                                                             ),
                                                           ),
                                                         ),
-                                                        FlutterFlowIconButton(
-                                                          borderColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                          borderRadius: 4.0,
-                                                          borderWidth: 1.0,
-                                                          buttonSize: 60.0,
-                                                          fillColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .primary,
-                                                          icon: Icon(
-                                                            Icons.send_sharp,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            size: 24.0,
-                                                          ),
-                                                          onPressed: () async {
+                                                      ),
+                                                      FlutterFlowIconButton(
+                                                        borderColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        borderRadius: 4.0,
+                                                        borderWidth: 1.0,
+                                                        buttonSize: 60.0,
+                                                        fillColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        icon: Icon(
+                                                          Icons.send_sharp,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          size: 24.0,
+                                                        ),
+                                                        onPressed: () async {
+                                                          FFAppState()
+                                                              .update(() {
                                                             FFAppState()
-                                                                .update(() {
-                                                              FFAppState()
-                                                                      .phoneNoSent =
-                                                                  true;
-                                                            });
-                                                            final phoneNumberVal =
-                                                                '+855${_model.phoneNoController.text}';
-                                                            if (phoneNumberVal ==
+                                                                    .phoneNoSent =
+                                                                true;
+                                                          });
+                                                          final phoneNumberVal =
+                                                              '+855${_model.phoneNoController.text}';
+                                                          if (phoneNumberVal == null ||
+                                                              phoneNumberVal
+                                                                  .isEmpty ||
+                                                              !phoneNumberVal
+                                                                  .startsWith(
+                                                                      '+')) {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                    'Phone Number is required and has to start with +.'),
+                                                              ),
+                                                            );
+                                                            return;
+                                                          }
+                                                          await authManager
+                                                              .beginPhoneAuth(
+                                                            context: context,
+                                                            phoneNumber:
+                                                                phoneNumberVal,
+                                                            onCodeSent:
+                                                                (context) async {
+                                                              context
+                                                                  .goNamedAuth(
+                                                                'Log_in',
+                                                                context.mounted,
+                                                                ignoreRedirect:
+                                                                    true,
+                                                              );
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                if (_model.isSent == true)
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'uikjn24d' /* OTP Code */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Kantumruy Pro',
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    16.0,
+                                                                    0.0,
+                                                                    16.0),
+                                                        child: PinCodeTextField(
+                                                          autoDisposeControllers:
+                                                              false,
+                                                          appContext: context,
+                                                          length: 6,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          enableActiveFill:
+                                                              false,
+                                                          autoFocus: true,
+                                                          enablePinAutofill:
+                                                              false,
+                                                          errorTextSpace: 16.0,
+                                                          showCursor: true,
+                                                          cursorColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          obscureText: false,
+                                                          hintCharacter: '-',
+                                                          keyboardType:
+                                                              TextInputType
+                                                                  .number,
+                                                          pinTheme: PinTheme(
+                                                            fieldHeight: 54.0,
+                                                            fieldWidth: 54.0,
+                                                            borderWidth: 2.0,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      12.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      12.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      12.0),
+                                                            ),
+                                                            shape:
+                                                                PinCodeFieldShape
+                                                                    .box,
+                                                            activeColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                            inactiveColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                            selectedColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                            activeFillColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                            inactiveFillColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                            selectedFillColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                          ),
+                                                          controller: _model
+                                                              .pinCodeController,
+                                                          onChanged: (_) {},
+                                                          onCompleted:
+                                                              (_) async {
+                                                            GoRouter.of(context)
+                                                                .prepareAuthEvent();
+                                                            final smsCodeVal =
+                                                                _model
+                                                                    .pinCodeController!
+                                                                    .text;
+                                                            if (smsCodeVal ==
                                                                     null ||
-                                                                phoneNumberVal
-                                                                    .isEmpty ||
-                                                                !phoneNumberVal
-                                                                    .startsWith(
-                                                                        '+')) {
+                                                                smsCodeVal
+                                                                    .isEmpty) {
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .showSnackBar(
                                                                 SnackBar(
                                                                   content: Text(
-                                                                      'Phone Number is required and has to start with +.'),
+                                                                      'Enter SMS verification code.'),
                                                                 ),
                                                               );
                                                               return;
                                                             }
-                                                            await authManager
-                                                                .beginPhoneAuth(
+                                                            final phoneVerifiedUser =
+                                                                await authManager
+                                                                    .verifySmsCode(
                                                               context: context,
-                                                              phoneNumber:
-                                                                  phoneNumberVal,
-                                                              onCodeSent:
-                                                                  (context) async {
-                                                                context
-                                                                    .goNamedAuth(
-                                                                  'Log_in',
-                                                                  context
-                                                                      .mounted,
-                                                                  ignoreRedirect:
-                                                                      true,
-                                                                );
-                                                              },
+                                                              smsCode:
+                                                                  smsCodeVal,
                                                             );
+                                                            if (phoneVerifiedUser ==
+                                                                null) {
+                                                              return;
+                                                            }
+
+                                                            context.goNamedAuth(
+                                                                'HomePage',
+                                                                context
+                                                                    .mounted);
                                                           },
+                                                          autovalidateMode:
+                                                              AutovalidateMode
+                                                                  .onUserInteraction,
+                                                          validator: _model
+                                                              .pinCodeControllerValidator
+                                                              .asValidator(
+                                                                  context),
                                                         ),
-                                                      ],
-                                                    ),
-                                                  if (_model.isSent == true)
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  -1.0, 0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'uikjn24d' /* OTP Code */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Kantumruy Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Padding(
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                -1.0, 0.0),
+                                                        child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
+                                                                      12.0,
                                                                       0.0,
-                                                                      16.0,
                                                                       0.0,
-                                                                      16.0),
-                                                          child:
-                                                              PinCodeTextField(
-                                                            autoDisposeControllers:
-                                                                false,
-                                                            appContext: context,
-                                                            length: 6,
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLarge,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            enableActiveFill:
-                                                                false,
-                                                            autoFocus: true,
-                                                            enablePinAutofill:
-                                                                false,
-                                                            errorTextSpace:
-                                                                16.0,
-                                                            showCursor: true,
-                                                            cursorColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                            obscureText: false,
-                                                            hintCharacter: '-',
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .number,
-                                                            pinTheme: PinTheme(
-                                                              fieldHeight: 54.0,
-                                                              fieldWidth: 54.0,
-                                                              borderWidth: 2.0,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                topRight: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                              ),
-                                                              shape:
-                                                                  PinCodeFieldShape
-                                                                      .box,
-                                                              activeColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                              inactiveColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                              selectedColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                              activeFillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                              inactiveFillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                              selectedFillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                            ),
-                                                            controller: _model
-                                                                .pinCodeController,
-                                                            onChanged: (_) {},
-                                                            onCompleted:
-                                                                (_) async {
-                                                              GoRouter.of(
-                                                                      context)
-                                                                  .prepareAuthEvent();
-                                                              final smsCodeVal =
-                                                                  _model
-                                                                      .pinCodeController!
-                                                                      .text;
-                                                              if (smsCodeVal ==
-                                                                      null ||
-                                                                  smsCodeVal
-                                                                      .isEmpty) {
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content: Text(
-                                                                        'Enter SMS verification code.'),
-                                                                  ),
-                                                                );
-                                                                return;
-                                                              }
-                                                              final phoneVerifiedUser =
-                                                                  await authManager
-                                                                      .verifySmsCode(
-                                                                context:
-                                                                    context,
-                                                                smsCode:
-                                                                    smsCodeVal,
-                                                              );
-                                                              if (phoneVerifiedUser ==
-                                                                  null) {
-                                                                return;
-                                                              }
-
-                                                              context.goNamedAuth(
-                                                                  'HomePage',
-                                                                  context
-                                                                      .mounted);
-                                                            },
-                                                            autovalidateMode:
-                                                                AutovalidateMode
-                                                                    .onUserInteraction,
-                                                            validator: _model
-                                                                .pinCodeControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  -1.0, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        40.0),
-                                                            child: Builder(
-                                                              builder:
-                                                                  (context) {
-                                                                if (_model
-                                                                        .resendCode ==
-                                                                    false) {
-                                                                  return Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            -1.0,
-                                                                            1.0),
-                                                                    child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        setState(
-                                                                            () {
-                                                                          _model.resendCode =
-                                                                              true;
-                                                                        });
-                                                                        _model
-                                                                            .timerController
-                                                                            .onStartTimer();
-                                                                        final phoneNumberVal = _model
-                                                                            .phoneNoController
-                                                                            .text;
-                                                                        if (phoneNumberVal ==
-                                                                                null ||
-                                                                            phoneNumberVal.isEmpty ||
-                                                                            !phoneNumberVal.startsWith('+')) {
-                                                                          ScaffoldMessenger.of(context)
-                                                                              .showSnackBar(
-                                                                            SnackBar(
-                                                                              content: Text('Phone Number is required and has to start with +.'),
-                                                                            ),
-                                                                          );
-                                                                          return;
-                                                                        }
-                                                                        await authManager
-                                                                            .beginPhoneAuth(
-                                                                          context:
-                                                                              context,
-                                                                          phoneNumber:
-                                                                              phoneNumberVal,
-                                                                          onCodeSent:
-                                                                              (context) async {
-                                                                            context.goNamedAuth(
-                                                                              'Log_in',
-                                                                              context.mounted,
-                                                                              ignoreRedirect: true,
-                                                                            );
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'hfn2nhj5' /* Resend Code */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Kantumruy Pro',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  );
-                                                                } else {
-                                                                  return FlutterFlowTimer(
-                                                                    initialTime:
-                                                                        _model
-                                                                            .timerMilliseconds,
-                                                                    getDisplayTime:
-                                                                        (value) =>
-                                                                            StopWatchTimer.getDisplayTime(
-                                                                      value,
-                                                                      hours:
-                                                                          false,
-                                                                      milliSecond:
-                                                                          false,
-                                                                    ),
-                                                                    controller:
-                                                                        _model
-                                                                            .timerController,
-                                                                    updateStateInterval:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                1000),
-                                                                    onChanged: (value,
-                                                                        displayTime,
-                                                                        shouldUpdate) {
-                                                                      _model.timerMilliseconds =
-                                                                          value;
-                                                                      _model.timerValue =
-                                                                          displayTime;
-                                                                      if (shouldUpdate)
-                                                                        setState(
-                                                                            () {});
-                                                                    },
-                                                                    onEnded:
+                                                                      40.0),
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              if (_model
+                                                                      .resendCode ==
+                                                                  false) {
+                                                                return Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
                                                                         () async {
                                                                       setState(
                                                                           () {
                                                                         _model.resendCode =
-                                                                            false;
+                                                                            true;
                                                                       });
                                                                       _model
                                                                           .timerController
-                                                                          .onResetTimer();
+                                                                          .onStartTimer();
+                                                                      final phoneNumberVal = _model
+                                                                          .phoneNoController
+                                                                          .text;
+                                                                      if (phoneNumberVal ==
+                                                                              null ||
+                                                                          phoneNumberVal
+                                                                              .isEmpty ||
+                                                                          !phoneNumberVal
+                                                                              .startsWith('+')) {
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .showSnackBar(
+                                                                          SnackBar(
+                                                                            content:
+                                                                                Text('Phone Number is required and has to start with +.'),
+                                                                          ),
+                                                                        );
+                                                                        return;
+                                                                      }
+                                                                      await authManager
+                                                                          .beginPhoneAuth(
+                                                                        context:
+                                                                            context,
+                                                                        phoneNumber:
+                                                                            phoneNumberVal,
+                                                                        onCodeSent:
+                                                                            (context) async {
+                                                                          context
+                                                                              .goNamedAuth(
+                                                                            'Log_in',
+                                                                            context.mounted,
+                                                                            ignoreRedirect:
+                                                                                true,
+                                                                          );
+                                                                        },
+                                                                      );
                                                                     },
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .start,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .headlineSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Kantumruy Pro',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          fontSize:
-                                                                              18.0,
-                                                                        ),
-                                                                  );
-                                                                }
-                                                              },
-                                                            ),
+                                                                    child: Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'hfn2nhj5' /* Resend Code */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Kantumruy Pro',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              } else {
+                                                                return FlutterFlowTimer(
+                                                                  initialTime:
+                                                                      _model
+                                                                          .timerMilliseconds,
+                                                                  getDisplayTime:
+                                                                      (value) =>
+                                                                          StopWatchTimer
+                                                                              .getDisplayTime(
+                                                                    value,
+                                                                    hours:
+                                                                        false,
+                                                                    milliSecond:
+                                                                        false,
+                                                                  ),
+                                                                  controller: _model
+                                                                      .timerController,
+                                                                  updateStateInterval:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              1000),
+                                                                  onChanged: (value,
+                                                                      displayTime,
+                                                                      shouldUpdate) {
+                                                                    _model.timerMilliseconds =
+                                                                        value;
+                                                                    _model.timerValue =
+                                                                        displayTime;
+                                                                    if (shouldUpdate)
+                                                                      setState(
+                                                                          () {});
+                                                                  },
+                                                                  onEnded:
+                                                                      () async {
+                                                                    setState(
+                                                                        () {
+                                                                      _model.resendCode =
+                                                                          false;
+                                                                    });
+                                                                    _model
+                                                                        .timerController
+                                                                        .onResetTimer();
+                                                                  },
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .start,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Kantumruy Pro',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        fontSize:
+                                                                            18.0,
+                                                                      ),
+                                                                );
+                                                              }
+                                                            },
                                                           ),
                                                         ),
-                                                      ],
-                                                    ),
-                                                ].divide(
-                                                    SizedBox(height: 20.0)),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'columnOnPageLoadAnimation']!),
-                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                              ].divide(SizedBox(height: 20.0)),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'columnOnPageLoadAnimation']!),
                                           ),
                                           FFButtonWidget(
                                             onPressed: () async {
@@ -970,7 +966,7 @@ class _LogInWidgetState extends State<LogInWidget>
                                               ],
                                             ),
                                           ),
-                                        ],
+                                        ].divide(SizedBox(height: 20.0)),
                                       ),
                                     ),
                                   ),

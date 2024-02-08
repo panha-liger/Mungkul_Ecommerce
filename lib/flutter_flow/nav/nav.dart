@@ -126,6 +126,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'AdminDashboard',
           path: '/adminDashboard',
+          requireAuth: true,
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'AdminDashboard')
               : AdminDashboardWidget(),

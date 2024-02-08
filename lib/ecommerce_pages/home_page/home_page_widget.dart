@@ -345,441 +345,396 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     thickness: 1.0,
                                     color: Color(0xFE39D2C0),
                                   ),
-                                  StreamBuilder<List<ProductsRecord>>(
-                                    stream: queryProductsRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<ProductsRecord>
-                                          containerProductsRecordList =
-                                          snapshot.data!;
-                                      return Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 40.0, 0.0, 0.0),
-                                          child: Column(
+                                  Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 40.0, 0.0, 0.0),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 50.0,
-                                                    child: VerticalDivider(
-                                                      width: 20.0,
-                                                      thickness: 20.0,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(15.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '64n86xiy' /* Today's Discount */,
-                                                      ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .titleMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Kantumruy Pro',
-                                                            color: Colors.black,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ],
+                                              SizedBox(
+                                                height: 50.0,
+                                                child: VerticalDivider(
+                                                  width: 20.0,
+                                                  thickness: 20.0,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 20.0, 0.0, 0.0),
-                                                child: Row(
+                                                        15.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '64n86xiy' /* Today's Discount */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Kantumruy Pro',
+                                                        color: Colors.black,
+                                                        fontSize: 20.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 20.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'libwi44i' /* Flash Sales */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .displaySmall,
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      if (_model.pageIndex != 1)
+                                                        FlutterFlowIconButton(
+                                                          borderColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          borderRadius: 20.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
+                                                          fillColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          icon: Icon(
+                                                            Icons.arrow_back,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            if (animationsMap[
+                                                                    'rowOnActionTriggerAnimation'] !=
+                                                                null) {
+                                                              animationsMap[
+                                                                      'rowOnActionTriggerAnimation']!
+                                                                  .controller
+                                                                  .forward(
+                                                                      from:
+                                                                          0.0);
+                                                            }
+                                                            setState(() {
+                                                              _model.pageIndex =
+                                                                  _model.pageIndex +
+                                                                      -1;
+                                                            });
+                                                            setState(() {
+                                                              _model.prevStartIndex =
+                                                                  _model.prevStartIndex +
+                                                                      -4;
+                                                            });
+                                                            setState(() {
+                                                              _model.startIndex =
+                                                                  _model
+                                                                      .prevStartIndex;
+                                                            });
+                                                            setState(() {
+                                                              _model.endIndex =
+                                                                  _model.startIndex +
+                                                                      3;
+                                                            });
+                                                            setState(() {
+                                                              _model.listShownProductsList =
+                                                                  [];
+                                                            });
+                                                            while (_model
+                                                                    .startIndex <=
+                                                                _model
+                                                                    .endIndex) {
+                                                              setState(() {
+                                                                _model.addToListShownProductsList(
+                                                                    _model.allProductsList[
+                                                                        _model
+                                                                            .startIndex]);
+                                                              });
+                                                              setState(() {
+                                                                _model.startIndex =
+                                                                    _model.startIndex +
+                                                                        1;
+                                                              });
+                                                            }
+                                                          },
+                                                        ),
+                                                      if (_model.startIndex !=
+                                                          _model.allProductsList
+                                                              .length)
+                                                        FlutterFlowIconButton(
+                                                          borderColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          borderRadius: 20.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
+                                                          fillColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                          icon: Icon(
+                                                            Icons.arrow_forward,
+                                                            color: Colors.white,
+                                                            size: 24.0,
+                                                          ),
+                                                          onPressed: () async {
+                                                            if (animationsMap[
+                                                                    'rowOnActionTriggerAnimation'] !=
+                                                                null) {
+                                                              animationsMap[
+                                                                      'rowOnActionTriggerAnimation']!
+                                                                  .controller
+                                                                  .forward(
+                                                                      from:
+                                                                          0.0);
+                                                            }
+                                                            setState(() {
+                                                              _model.listShownProductsList =
+                                                                  [];
+                                                            });
+                                                            setState(() {
+                                                              _model.prevStartIndex =
+                                                                  _model
+                                                                      .startIndex;
+                                                            });
+                                                            setState(() {
+                                                              _model.endIndex =
+                                                                  _model.startIndex +
+                                                                      3;
+                                                              _model.pageIndex =
+                                                                  _model.pageIndex +
+                                                                      1;
+                                                            });
+                                                            if (_model
+                                                                    .endIndex >=
+                                                                _model
+                                                                    .allProductsList
+                                                                    .length) {
+                                                              setState(() {
+                                                                _model
+                                                                    .endIndex = _model
+                                                                        .allProductsList
+                                                                        .length -
+                                                                    1;
+                                                              });
+                                                            }
+                                                            while (_model
+                                                                    .startIndex <=
+                                                                _model
+                                                                    .endIndex) {
+                                                              setState(() {
+                                                                _model.addToListShownProductsList(
+                                                                    _model.allProductsList[
+                                                                        _model
+                                                                            .startIndex]);
+                                                              });
+                                                              setState(() {
+                                                                _model.startIndex =
+                                                                    _model.startIndex +
+                                                                        1;
+                                                              });
+                                                            }
+                                                          },
+                                                        ),
+                                                    ].divide(
+                                                        SizedBox(width: 30.0)),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 55.0, 0.0, 0.0),
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 452.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
                                                   children: [
-                                                    Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'libwi44i' /* Flash Sales */,
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .displaySmall,
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          if (_model
-                                                                  .pageIndex !=
-                                                              1)
-                                                            FlutterFlowIconButton(
-                                                              borderColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                              borderRadius:
-                                                                  20.0,
-                                                              borderWidth: 1.0,
-                                                              buttonSize: 40.0,
-                                                              fillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .arrow_back,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 24.0,
-                                                              ),
-                                                              onPressed:
-                                                                  () async {
-                                                                if (animationsMap[
-                                                                        'rowOnActionTriggerAnimation'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'rowOnActionTriggerAnimation']!
-                                                                      .controller
-                                                                      .forward(
-                                                                          from:
-                                                                              0.0);
-                                                                }
-                                                                setState(() {
-                                                                  _model.pageIndex =
-                                                                      _model.pageIndex +
-                                                                          -1;
-                                                                });
-                                                                setState(() {
-                                                                  _model.prevStartIndex =
-                                                                      _model.prevStartIndex +
-                                                                          -4;
-                                                                });
-                                                                setState(() {
-                                                                  _model.startIndex =
-                                                                      _model
-                                                                          .prevStartIndex;
-                                                                });
-                                                                setState(() {
-                                                                  _model.endIndex =
-                                                                      _model.startIndex +
-                                                                          3;
-                                                                });
-                                                                setState(() {
-                                                                  _model.listShownProductsList =
-                                                                      [];
-                                                                });
-                                                                while (_model
-                                                                        .startIndex <=
-                                                                    _model
-                                                                        .endIndex) {
-                                                                  setState(() {
-                                                                    _model.addToListShownProductsList(_model
-                                                                            .allProductsList[
-                                                                        _model
-                                                                            .startIndex]);
-                                                                  });
-                                                                  setState(() {
-                                                                    _model.startIndex =
-                                                                        _model.startIndex +
-                                                                            1;
-                                                                  });
-                                                                }
-                                                              },
-                                                            ),
-                                                          if (_model
-                                                                  .startIndex !=
-                                                              _model
-                                                                  .allProductsList
-                                                                  .length)
-                                                            FlutterFlowIconButton(
-                                                              borderColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                              borderRadius:
-                                                                  20.0,
-                                                              borderWidth: 1.0,
-                                                              buttonSize: 40.0,
-                                                              fillColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                              icon: Icon(
-                                                                Icons
-                                                                    .arrow_forward,
-                                                                color: Colors
-                                                                    .white,
-                                                                size: 24.0,
-                                                              ),
-                                                              onPressed:
-                                                                  () async {
-                                                                if (animationsMap[
-                                                                        'rowOnActionTriggerAnimation'] !=
-                                                                    null) {
-                                                                  animationsMap[
-                                                                          'rowOnActionTriggerAnimation']!
-                                                                      .controller
-                                                                      .forward(
-                                                                          from:
-                                                                              0.0);
-                                                                }
-                                                                setState(() {
-                                                                  _model.listShownProductsList =
-                                                                      [];
-                                                                });
-                                                                setState(() {
-                                                                  _model.prevStartIndex =
-                                                                      _model
-                                                                          .startIndex;
-                                                                });
-                                                                setState(() {
-                                                                  _model.endIndex =
-                                                                      _model.startIndex +
-                                                                          3;
-                                                                  _model.pageIndex =
-                                                                      _model.pageIndex +
-                                                                          1;
-                                                                });
-                                                                if (_model
-                                                                        .endIndex >=
-                                                                    _model
-                                                                        .allProductsList
-                                                                        .length) {
-                                                                  setState(() {
-                                                                    _model
-                                                                        .endIndex = _model
-                                                                            .allProductsList
-                                                                            .length -
-                                                                        1;
-                                                                  });
-                                                                }
-                                                                while (_model
-                                                                        .startIndex <=
-                                                                    _model
-                                                                        .endIndex) {
-                                                                  setState(() {
-                                                                    _model.addToListShownProductsList(_model
-                                                                            .allProductsList[
-                                                                        _model
-                                                                            .startIndex]);
-                                                                  });
-                                                                  setState(() {
-                                                                    _model.startIndex =
-                                                                        _model.startIndex +
-                                                                            1;
-                                                                  });
-                                                                }
-                                                              },
-                                                            ),
-                                                        ].divide(SizedBox(
-                                                            width: 30.0)),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 55.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    height: 452.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .start,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(),
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          3.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0),
-                                                              child: Builder(
-                                                                builder:
-                                                                    (context) {
-                                                                  final listofShownProdects = _model
+                                                    Container(
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      3.0,
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0),
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              final listofShownProdects =
+                                                                  _model
                                                                       .listShownProductsList
                                                                       .toList();
-                                                                  return Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: List.generate(
-                                                                        listofShownProdects
-                                                                            .length,
-                                                                        (listofShownProdectsIndex) {
-                                                                      final listofShownProdectsItem =
-                                                                          listofShownProdects[
-                                                                              listofShownProdectsIndex];
-                                                                      return ProductCardWidget(
-                                                                        key: Key(
-                                                                            'Keylb2_${listofShownProdectsIndex}_of_${listofShownProdects.length}'),
-                                                                        productRef:
-                                                                            listofShownProdectsItem.reference,
-                                                                        image: listofShownProdectsItem
-                                                                            .image
-                                                                            .first,
-                                                                        discount:
-                                                                            listofShownProdectsItem.discount,
-                                                                        name: listofShownProdectsItem
-                                                                            .name,
-                                                                        price: listofShownProdectsItem
-                                                                            .price,
-                                                                        aboutItem:
-                                                                            listofShownProdectsItem.aboutItem,
-                                                                        description:
-                                                                            listofShownProdectsItem.description,
-                                                                        status:
-                                                                            listofShownProdectsItem.status,
-                                                                        id: listofShownProdectsItem
-                                                                            .id,
-                                                                        catregory:
-                                                                            listofShownProdectsItem.category,
-                                                                      );
-                                                                    }).divide(SizedBox(
-                                                                        width:
-                                                                            70.0)),
-                                                                  ).animateOnActionTrigger(
-                                                                    animationsMap[
-                                                                        'rowOnActionTriggerAnimation']!,
+                                                              return Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: List.generate(
+                                                                    listofShownProdects
+                                                                        .length,
+                                                                    (listofShownProdectsIndex) {
+                                                                  final listofShownProdectsItem =
+                                                                      listofShownProdects[
+                                                                          listofShownProdectsIndex];
+                                                                  return ProductCardWidget(
+                                                                    key: Key(
+                                                                        'Keylb2_${listofShownProdectsIndex}_of_${listofShownProdects.length}'),
+                                                                    productRef:
+                                                                        listofShownProdectsItem
+                                                                            .reference,
+                                                                    image: listofShownProdectsItem
+                                                                        .image
+                                                                        .first,
+                                                                    discount:
+                                                                        listofShownProdectsItem
+                                                                            .discount,
+                                                                    name: listofShownProdectsItem
+                                                                        .name,
+                                                                    price: listofShownProdectsItem
+                                                                        .price,
+                                                                    aboutItem:
+                                                                        listofShownProdectsItem
+                                                                            .aboutItem,
+                                                                    description:
+                                                                        listofShownProdectsItem
+                                                                            .description,
+                                                                    status: listofShownProdectsItem
+                                                                        .status,
+                                                                    id: listofShownProdectsItem
+                                                                        .id,
+                                                                    catregory:
+                                                                        listofShownProdectsItem
+                                                                            .category,
                                                                   );
-                                                                },
-                                                              ),
-                                                            ),
+                                                                }).divide(SizedBox(
+                                                                    width:
+                                                                        70.0)),
+                                                              ).animateOnActionTrigger(
+                                                                animationsMap[
+                                                                    'rowOnActionTriggerAnimation']!,
+                                                              );
+                                                            },
                                                           ),
                                                         ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Padding(
+                                                      ),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    40.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            context.pushNamed(
+                                                              'productPage',
+                                                              queryParameters: {
+                                                                'isDiscount':
+                                                                    serializeParam(
+                                                                  true,
+                                                                  ParamType
+                                                                      .bool,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            '42o26hpw' /* View All Products */,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 200.0,
+                                                            height: 50.0,
                                                             padding:
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
+                                                                        24.0,
                                                                         0.0,
-                                                                        40.0,
-                                                                        0.0,
+                                                                        24.0,
                                                                         0.0),
-                                                            child:
-                                                                FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'productPage',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'isDiscount':
-                                                                        serializeParam(
-                                                                      true,
-                                                                      ParamType
-                                                                          .bool,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              },
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                '42o26hpw' /* View All Products */,
-                                                              ),
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: 200.0,
-                                                                height: 50.0,
-                                                                padding: EdgeInsetsDirectional
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
-                                                                        24.0,
                                                                         0.0,
-                                                                        24.0,
+                                                                        0.0,
+                                                                        0.0,
                                                                         0.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                textStyle: FlutterFlowTheme.of(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
                                                                         context)
                                                                     .titleSmall
                                                                     .override(
@@ -788,38 +743,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       color: Colors
                                                                           .white,
                                                                     ),
-                                                                elevation: 3.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  width: 1.0,
-                                                                ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            4.0),
-                                                              ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 1.0,
                                                             ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
                                                           ),
                                                         ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                  ],
                                                 ),
                                               ),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                              ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                   Divider(
                                     thickness: 1.0,
@@ -1124,26 +1077,22 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                             ],
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 20.0, 0.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'vymv7nrq' /* Best Selling Products */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .displaySmall,
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(-1.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 20.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'vymv7nrq' /* Best Selling Products */,
                                                 ),
-                                              ],
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall,
+                                              ),
                                             ),
                                           ),
                                           Column(
@@ -1555,66 +1504,40 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 FlutterFlowTheme.of(context).primary,
                                                                           ),
                                                                         ),
-                                                                        child: StreamBuilder<
-                                                                            List<ProductsRecord>>(
-                                                                          stream:
-                                                                              queryProductsRecord(
-                                                                            singleRecord:
-                                                                                true,
-                                                                          ),
-                                                                          builder:
-                                                                              (context, snapshot) {
-                                                                            // Customize what your widget looks like when it's loading.
-                                                                            if (!snapshot.hasData) {
-                                                                              return Center(
-                                                                                child: SizedBox(
-                                                                                  width: 50.0,
-                                                                                  height: 50.0,
-                                                                                  child: CircularProgressIndicator(
-                                                                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                                                                      FlutterFlowTheme.of(context).primary,
-                                                                                    ),
-                                                                                  ),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            context.pushNamed(
+                                                                              'product_Detail',
+                                                                              queryParameters: {
+                                                                                'productId': serializeParam(
+                                                                                  containerProductsRecordList[1].id,
+                                                                                  ParamType.String,
                                                                                 ),
-                                                                              );
-                                                                            }
-                                                                            List<ProductsRecord>
-                                                                                imageProductsRecordList =
-                                                                                snapshot.data!;
-                                                                            // Return an empty Container when the item does not exist.
-                                                                            if (snapshot.data!.isEmpty) {
-                                                                              return Container();
-                                                                            }
-                                                                            final imageProductsRecord = imageProductsRecordList.isNotEmpty
-                                                                                ? imageProductsRecordList.first
-                                                                                : null;
-                                                                            return InkWell(
-                                                                              splashColor: Colors.transparent,
-                                                                              focusColor: Colors.transparent,
-                                                                              hoverColor: Colors.transparent,
-                                                                              highlightColor: Colors.transparent,
-                                                                              onTap: () async {
-                                                                                context.pushNamed(
-                                                                                  'product_Detail',
-                                                                                  queryParameters: {
-                                                                                    'productId': serializeParam(
-                                                                                      containerProductsRecordList[1].id,
-                                                                                      ParamType.String,
-                                                                                    ),
-                                                                                  }.withoutNulls,
-                                                                                );
-                                                                              },
-                                                                              child: ClipRRect(
-                                                                                borderRadius: BorderRadius.circular(8.0),
-                                                                                child: Image.network(
-                                                                                  containerProductsRecordList[1].previewImage,
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.5,
-                                                                                  height: 260.0,
-                                                                                  fit: BoxFit.fill,
-                                                                                ),
-                                                                              ),
+                                                                              }.withoutNulls,
                                                                             );
                                                                           },
+                                                                          child:
+                                                                              ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            child:
+                                                                                Image.network(
+                                                                              containerProductsRecordList[1].previewImage,
+                                                                              width: MediaQuery.sizeOf(context).width * 0.5,
+                                                                              height: 260.0,
+                                                                              fit: BoxFit.fill,
+                                                                            ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
